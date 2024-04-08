@@ -1,0 +1,81 @@
+#message::-webkit-scrollbar , #chat-area::-webkit-scrollbar {
+    display: none;
+}
+#chatting-card{
+    height:100%;
+    left: 20%;
+    padding: 0 0;
+    margin-top: 0 !important;
+    z-index: 1;
+    position: absolute;
+    width: 80%;
+    
+}
+.msg{
+    min-width: 250px;
+    max-width: max-content;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+border: 1px solid #EAEAEA;
+
+
+
+}
+.msg-send{
+    margin-left: auto;
+    margin-right: 5px;
+}
+.msg-rev{
+    margin-left: 5px;
+    margin-right: auto;
+}
+.chatting-area{
+    height: 47vh;
+    width: inherit;
+    position: relative;
+}
+.chat-msg-section{
+position: absolute;
+bottom: 0;
+min-height: fit-content;
+max-height: 48vh;
+min-width: 100%;
+}
+#chatting-card-section{
+    display: none;
+}
+#message{
+    position: relative;
+    height: 62% !important;
+}
+.chat-bottom-section{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.btn-outline-custom{
+    border-color: #001B41;
+    color: #8D8D8D;
+}
+.btn-outline-custom:hover,.btn-outline-custom:hover>svg{
+    background-color: #001B41;
+    color: white;
+    fill: white;
+}
+.card-chating-section{
+    height: 88%;
+}
+@media screen and (max-width: 480px) {
+    #message{
+        position: relative;
+        height: 100% !important;
+    }
+    .chatting-area{
+        height: 48vh;
+        width: inherit;
+        position: relative;
+    }
+    .card-chating-section{
+        height: 80vh;
+    }
+      
+}

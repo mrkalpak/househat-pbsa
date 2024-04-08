@@ -1,0 +1,1572 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>House Hat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/lead.css">
+    <link rel="stylesheet" href="./css/task.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <style>
+        /* Add CSS styles for responsiveness */
+    </style>
+</head>
+
+<body style="background-color: #E1E1E1;">
+    <!-- start navbar -->
+    <nav class="navbar navbar-default navbar-expand-lg bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand navlogo ms-5 my-2" href="./"> <img class="househatlogo" src="./img/househat_logo.png"
+                    alt=""></a> <br>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <button class="btn bg-transparent border-0" onclick="collapse()">
+                <svg fill="#8D8D8D" width="12" id="leftbtn" height="20" viewBox="0 0 12 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M9.12506 19.1L0.700064 10.7C0.600064 10.6 0.529064 10.4916 0.487064 10.375C0.445064 10.2583 0.424398 10.1333 0.425064 9.99996C0.425064 9.86663 0.445731 9.74163 0.487064 9.62496C0.528398 9.5083 0.599397 9.39996 0.700064 9.29996L9.12506 0.874963C9.3584 0.64163 9.65006 0.524963 10.0001 0.524963C10.3501 0.524963 10.6501 0.649963 10.9001 0.899963C11.1501 1.14996 11.2751 1.44163 11.2751 1.77496C11.2751 2.1083 11.1501 2.39996 10.9001 2.64996L3.55006 9.99996L10.9001 17.35C11.1334 17.5833 11.2501 17.871 11.2501 18.213C11.2501 18.555 11.1251 18.8506 10.8751 19.1C10.6251 19.35 10.3334 19.475 10.0001 19.475C9.66673 19.475 9.37506 19.35 9.12506 19.1Z" />
+                </svg>
+                <svg fill="#001B41" width="11" height="20" viewBox="0 0 11 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path id="rightbtn"
+                        d="M2.14996 0.899913L10.575 9.29992C10.675 9.39992 10.746 9.50825 10.788 9.62491C10.83 9.74158 10.8506 9.86658 10.85 9.99991C10.85 10.1332 10.8293 10.2582 10.788 10.3749C10.7466 10.4916 10.6756 10.5999 10.575 10.6999L2.14996 19.1249C1.91663 19.3582 1.62496 19.4749 1.27496 19.4749C0.92496 19.4749 0.624961 19.3499 0.374961 19.0999C0.124961 18.8499 -3.90205e-05 18.5582 -3.89914e-05 18.2249C-3.89622e-05 17.8916 0.124961 17.5999 0.374961 17.3499L7.72496 9.99991L0.374962 2.64991C0.141629 2.41658 0.024962 2.12891 0.0249621 1.78691C0.0249621 1.44491 0.149962 1.14925 0.399962 0.899913C0.649962 0.649913 0.941629 0.524913 1.27496 0.524913C1.6083 0.524913 1.89996 0.649913 2.14996 0.899913Z" />
+                </svg>
+
+
+            </button>
+
+
+
+            <div class="d-inline navicon">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#rut">
+
+                    <svg width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.5833 3.37502C10.1701 3.37502 9.82354 3.23502 9.54354 2.95502C9.26354 2.67502 9.12403 2.3289 9.125 1.91668C9.125 1.50349 9.265 1.15689 9.545 0.87689C9.825 0.59689 10.1711 0.457376 10.5833 0.458349H16.4167C16.8299 0.458349 17.1765 0.598349 17.4565 0.878349C17.7365 1.15835 17.876 1.50446 17.875 1.91668C17.875 2.32988 17.735 2.67647 17.455 2.95647C17.175 3.23647 16.8289 3.37599 16.4167 3.37502H10.5833ZM13.5 19.4167C13.9132 19.4167 14.2598 19.2767 14.5398 18.9967C14.8198 18.7167 14.9593 18.3706 14.9583 17.9583V12.125C14.9583 11.7118 14.8183 11.3652 14.5383 11.0852C14.2583 10.8052 13.9122 10.6657 13.5 10.6667C13.0868 10.6667 12.7402 10.8067 12.4602 11.0867C12.1802 11.3667 12.0407 11.7128 12.0417 12.125V17.9583C12.0417 18.3715 12.1817 18.7181 12.4617 18.9981C12.7417 19.2781 13.0878 19.4177 13.5 19.4167ZM13.5 31.0833C11.7014 31.0833 10.0058 30.7368 8.41334 30.0436C6.82084 29.3504 5.42959 28.4088 4.23959 27.2188C3.04861 26.0278 2.10653 24.6361 1.41334 23.0436C0.720141 21.4511 0.37403 19.756 0.375002 17.9583C0.375002 16.1597 0.721599 14.4642 1.41479 12.8717C2.10799 11.2792 3.04959 9.88793 4.23959 8.69793C5.43056 7.50696 6.82229 6.56488 8.41479 5.87168C10.0073 5.17849 11.7024 4.83238 13.5 4.83335C15.0069 4.83335 16.4531 5.0764 17.8385 5.56252C19.224 6.04863 20.5243 6.75349 21.7396 7.6771L22.7604 6.65627C23.0278 6.3889 23.3681 6.25522 23.7813 6.25522C24.1944 6.25522 24.5347 6.3889 24.8021 6.65627C25.0694 6.92363 25.2031 7.2639 25.2031 7.6771C25.2031 8.09029 25.0694 8.43057 24.8021 8.69793L23.7813 9.71877C24.7049 10.934 25.4097 12.2344 25.8958 13.6198C26.3819 15.0052 26.625 16.4514 26.625 17.9583C26.625 19.757 26.2784 21.4525 25.5852 23.045C24.892 24.6375 23.9504 26.0288 22.7604 27.2188C21.5694 28.4097 20.1777 29.3518 18.5852 30.045C16.9927 30.7382 15.2976 31.0843 13.5 31.0833ZM13.5 28.1667C16.3194 28.1667 18.7257 27.1702 20.7188 25.1771C22.7118 23.184 23.7083 20.7778 23.7083 17.9583C23.7083 15.1389 22.7118 12.7327 20.7188 10.7396C18.7257 8.74654 16.3194 7.75002 13.5 7.75002C10.6806 7.75002 8.27431 8.74654 6.28125 10.7396C4.2882 12.7327 3.29167 15.1389 3.29167 17.9583C3.29167 20.7778 4.2882 23.184 6.28125 25.1771C8.27431 27.1702 10.6806 28.1667 13.5 28.1667Z"
+                            fill="#6D6D6D" />
+                    </svg>
+                </button>
+                <a href="./message.html" class="btn">
+                    <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.5 33.2646C16.4938 33.2646 15.5459 32.7542 14.875 31.8646L12.6875 28.9479C12.6438 28.8896 12.4688 28.8021 12.3813 28.8021H11.6667C5.58544 28.8021 1.82294 27.1542 1.82294 18.9583V11.6667C1.82294 5.22082 5.22085 1.82291 11.6667 1.82291H20.4167C21.0146 1.82291 21.5104 2.31874 21.5104 2.91666C21.5104 3.51457 21.0146 4.01041 20.4167 4.01041H11.6667C6.44585 4.01041 4.01044 6.44582 4.01044 11.6667V18.9583C4.01044 25.55 6.27085 26.6146 11.6667 26.6146H12.3959C13.1396 26.6146 13.9854 27.0375 14.4375 27.6354L16.625 30.5521C17.1354 31.2229 17.8646 31.2229 18.375 30.5521L20.5625 27.6354C21.0438 26.9937 21.8021 26.6146 22.6042 26.6146H23.3334C28.5542 26.6146 30.9896 24.1792 30.9896 18.9583V14.5833C30.9896 13.9854 31.4854 13.4896 32.0834 13.4896C32.6813 13.4896 33.1771 13.9854 33.1771 14.5833V18.9583C33.1771 25.4042 29.7792 28.8021 23.3334 28.8021H22.6042C22.4875 28.8021 22.3854 28.8604 22.3125 28.9479L20.125 31.8646C19.4542 32.7542 18.5063 33.2646 17.5 33.2646Z"
+                            fill="#6D6D6D" stroke="#6D6D6D" stroke-width="0.5" />
+                        <path
+                            d="M17.5 17.5C16.6834 17.5 16.0417 16.8438 16.0417 16.0417C16.0417 15.2396 16.6979 14.5833 17.5 14.5833C18.3021 14.5833 18.9584 15.2396 18.9584 16.0417C18.9584 16.8438 18.3167 17.5 17.5 17.5Z"
+                            fill="#6D6D6D" stroke="#6D6D6D" stroke-width="0.5" />
+                        <path
+                            d="M23.3333 17.5C22.5167 17.5 21.875 16.8438 21.875 16.0417C21.875 15.2396 22.5312 14.5833 23.3333 14.5833C24.1354 14.5833 24.7917 15.2396 24.7917 16.0417C24.7917 16.8438 24.15 17.5 23.3333 17.5Z"
+                            fill="#6D6D6D" stroke="#6D6D6D" stroke-width="0.5" />
+                        <path
+                            d="M11.6666 17.5C10.85 17.5 10.2083 16.8438 10.2083 16.0417C10.2083 15.2396 10.8646 14.5833 11.6666 14.5833C12.4687 14.5833 13.125 15.2396 13.125 16.0417C13.125 16.8438 12.4833 17.5 11.6666 17.5Z"
+                            fill="#6D6D6D" stroke="#6D6D6D" stroke-width="0.5" />
+                        <path
+                            d="M29.1818 11.697C32.4119 11.697 35.0304 9.07857 35.0304 5.84852C35.0304 2.61847 32.4119 0 29.1818 0C25.9518 0 23.3333 2.61847 23.3333 5.84852C23.3333 9.07857 25.9518 11.697 29.1818 11.697Z"
+                            fill="#001B41" />
+                    </svg>
+                </a>
+                <li class="nav-item dropdown d-inline-flex">
+
+                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img class="rounded-circle" Width="37px" height="37px" src="./img/proflephoto.png" alt="">
+                    </a>
+                    <ul class="dropdown-menu rounded-4 dropdown-menu-end ">
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#update_pro">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.99999 7.99967C9.84094 7.99967 11.3333 6.50729 11.3333 4.66634C11.3333 2.82539 9.84094 1.33301 7.99999 1.33301C6.15904 1.33301 4.66666 2.82539 4.66666 4.66634C4.66666 6.50729 6.15904 7.99967 7.99999 7.99967Z"
+                                        fill="#292D32" />
+                                    <path
+                                        d="M8 9.66699C4.66 9.66699 1.94 11.907 1.94 14.667C1.94 14.8537 2.08667 15.0003 2.27334 15.0003H13.7267C13.9133 15.0003 14.06 14.8537 14.06 14.667C14.06 11.907 11.34 9.66699 8 9.66699Z"
+                                        fill="#292D32" />
+                                </svg> Update Profile
+                            </a></li>
+                        <li><a class="dropdown-item" href="./timesheet.html">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8 3.09961C4.81333 3.09961 2.22 5.69294 2.22 8.87961C2.22 12.0663 4.81333 14.6663 8 14.6663C11.1867 14.6663 13.78 12.0729 13.78 8.88628C13.78 5.69961 11.1867 3.09961 8 3.09961ZM8.5 8.66628C8.5 8.93961 8.27333 9.16628 8 9.16628C7.72667 9.16628 7.5 8.93961 7.5 8.66628V5.33294C7.5 5.05961 7.72667 4.83294 8 4.83294C8.27333 4.83294 8.5 5.05961 8.5 5.33294V8.66628Z"
+                                        fill="#292D32" />
+                                    <path
+                                        d="M9.92666 2.29967H6.07332C5.80666 2.29967 5.59332 2.08634 5.59332 1.81967C5.59332 1.55301 5.80666 1.33301 6.07332 1.33301H9.92666C10.1933 1.33301 10.4067 1.54634 10.4067 1.81301C10.4067 2.07967 10.1933 2.29967 9.92666 2.29967Z"
+                                        fill="#292D32" />
+                                </svg> My Time Sheetss
+                            </a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#notification">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.6667 5.33301C13.7713 5.33301 14.6667 4.43758 14.6667 3.33301C14.6667 2.22844 13.7713 1.33301 12.6667 1.33301C11.5621 1.33301 10.6667 2.22844 10.6667 3.33301C10.6667 4.43758 11.5621 5.33301 12.6667 5.33301Z"
+                                        fill="#292D32" />
+                                    <path
+                                        d="M14 6.93333V10.9867C14 11.08 13.9933 11.1733 13.9867 11.26C13.98 11.34 13.9733 11.4133 13.96 11.4933C13.9533 11.5733 13.94 11.6533 13.9267 11.7267C13.6933 13.34 12.6667 14.36 11.06 14.5933C10.9867 14.6067 10.9067 14.62 10.8267 14.6267C10.7467 14.64 10.6733 14.6467 10.5933 14.6533C10.5067 14.66 10.4133 14.6667 10.32 14.6667H5.01334C4.92001 14.6667 4.82668 14.66 4.74001 14.6533C4.66001 14.6467 4.58668 14.64 4.50668 14.6267C4.42668 14.62 4.34668 14.6067 4.27334 14.5933C2.66668 14.36 1.64001 13.34 1.40668 11.7267C1.39334 11.6533 1.38001 11.5733 1.37334 11.4933C1.36001 11.4133 1.35334 11.34 1.34668 11.26C1.34001 11.1733 1.33334 11.08 1.33334 10.9867V5.68C1.33334 5.58667 1.34001 5.49333 1.34668 5.40667C1.35334 5.32667 1.36001 5.25333 1.37334 5.17333C1.38001 5.09333 1.39334 5.01333 1.40668 4.94C1.64001 3.32667 2.66668 2.30667 4.27334 2.07333C4.34668 2.06 4.42668 2.04667 4.50668 2.04C4.58668 2.02667 4.66001 2.02 4.74001 2.01333C4.82668 2.00667 4.92001 2 5.01334 2H9.06668C9.49334 2 9.80001 2.38667 9.72001 2.8C9.72001 2.81333 9.71334 2.82667 9.71334 2.84C9.70001 2.90667 9.69334 2.97333 9.68001 3.04667C9.65334 3.32667 9.66668 3.62667 9.72668 3.93333C9.74668 4.01333 9.76001 4.08 9.78668 4.15333C9.84001 4.37333 9.92668 4.58 10.04 4.77333C10.08 4.85333 10.1333 4.93333 10.18 5.00667C10.4 5.32667 10.6733 5.6 10.9933 5.82C11.0667 5.86667 11.1467 5.92 11.2267 5.96C11.42 6.07333 11.6267 6.16 11.8467 6.21333C11.92 6.24 11.9867 6.25333 12.0667 6.27333C12.3733 6.33333 12.6733 6.34667 12.9533 6.32C13.0267 6.30667 13.0933 6.3 13.16 6.28667C13.1733 6.28667 13.1867 6.28 13.2 6.28C13.6133 6.2 14 6.50667 14 6.93333Z"
+                                        fill="#292D32" />
+                                </svg>
+                                Notification Settings
+                            </a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#update_pass">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.5 5.33301V6.73301C12.2067 6.69301 11.8733 6.67301 11.5 6.66634V5.33301C11.5 3.23301 10.9067 1.83301 8 1.83301C5.09333 1.83301 4.5 3.23301 4.5 5.33301V6.66634C4.12667 6.67301 3.79333 6.69301 3.5 6.73301V5.33301C3.5 3.39967 3.96667 0.833008 8 0.833008C12.0333 0.833008 12.5 3.39967 12.5 5.33301Z"
+                                        fill="#292D32" />
+                                    <path
+                                        d="M12.5 6.73366C12.2067 6.69366 11.8733 6.67366 11.5 6.66699H4.50001C4.12668 6.67366 3.79334 6.69366 3.50001 6.73366C1.80001 6.94033 1.33334 7.77366 1.33334 10.0003V11.3337C1.33334 14.0003 2.00001 14.667 4.66668 14.667H11.3333C14 14.667 14.6667 14.0003 14.6667 11.3337V10.0003C14.6667 7.77366 14.2 6.94033 12.5 6.73366ZM5.80668 11.1403C5.68001 11.2603 5.50668 11.3337 5.33334 11.3337C5.24668 11.3337 5.16001 11.3137 5.08001 11.2803C4.99334 11.247 4.92668 11.2003 4.86001 11.1403C4.74001 11.0137 4.66668 10.8403 4.66668 10.667C4.66668 10.5803 4.68668 10.4937 4.72001 10.4137C4.75334 10.3337 4.80001 10.2603 4.86001 10.1937C4.92668 10.1337 4.99334 10.087 5.08001 10.0537C5.32668 9.94699 5.62001 10.007 5.80668 10.1937C5.86668 10.2603 5.91334 10.3337 5.94668 10.4137C5.98001 10.4937 6.00001 10.5803 6.00001 10.667C6.00001 10.8403 5.92668 11.0137 5.80668 11.1403ZM8.61334 10.9203C8.58001 11.0003 8.53334 11.0737 8.47334 11.1403C8.34668 11.2603 8.17334 11.3337 8.00001 11.3337C7.82001 11.3337 7.65334 11.2603 7.52668 11.1403C7.46668 11.0737 7.42001 11.0003 7.38668 10.9203C7.35334 10.8403 7.33334 10.7537 7.33334 10.667C7.33334 10.487 7.40668 10.3203 7.52668 10.1937C7.77334 9.94699 8.22001 9.94699 8.47334 10.1937C8.59334 10.3203 8.66668 10.487 8.66668 10.667C8.66668 10.7537 8.64668 10.8403 8.61334 10.9203ZM11.14 11.1403C11.0133 11.2603 10.84 11.3337 10.6667 11.3337C10.4933 11.3337 10.32 11.2603 10.1933 11.1403C10.0733 11.0137 10 10.847 10 10.667C10 10.487 10.0733 10.3203 10.1933 10.1937C10.4467 9.94699 10.8933 9.94699 11.14 10.1937C11.1667 10.227 11.1933 10.2603 11.22 10.3003C11.2467 10.3337 11.2667 10.3737 11.28 10.4137C11.3 10.4537 11.3133 10.4937 11.32 10.5337C11.3267 10.5803 11.3333 10.627 11.3333 10.667C11.3333 10.8403 11.26 11.0137 11.14 11.1403Z"
+                                        fill="#292D32" />
+                                </svg>
+
+                                Update Password
+                            </a></li>
+                        <li>
+                            <hr class="dropdown-divider bg-black  ms-auto me-auto
+                                " style="width: 85%;">
+                        </li>
+                        <li><a class="dropdown-item text-center" href="./">Logout</a></li>
+                    </ul>
+                </li>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- end navbar -->
+
+    <!-- start Modal  of record ur time-->
+    <div class="modal fade  " id="rut" tabindex="-1" aria-labelledby="=ruttitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-custom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ruttitle">Record Your Time</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+
+                        <div class="mb-3">
+                            <label for="leads" class="form-label">My Leads</label>
+                            <select class="form-select" aria-label="Default select example"
+                                style="height: 35px; font-size: 14px;">
+
+                                <option selected value="option1">option 1</option>
+                                <option value="option2">option 2</option>
+                                <option value="option3">option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" placeholder="">
+                        </div>
+                        <div class="row g-3">
+
+                            <div class="mb-3 col">
+                                <label for="hours" class="form-label">Hours</label>
+                                <input type="number" class="form-control" id="hours" placeholder="">
+                            </div>
+                            <div class="mb-3 col">
+                                <label for="minutes" class="form-label">Date</label>
+                                <input type="number" class="form-control" id="minutes" placeholder="">
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-lg text-white w-100" style="background-color: #001b41;"
+                            value="Update">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end Modal  of record ur time-->
+
+    <!-- start modal of update profile -->
+    <div class="modal fade  " id="update_pro" tabindex="-1" aria-labelledby="=ruttitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-custom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="ruttitle">Update Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+
+                        <div class=" mb-3">
+                            <input type="text" class="form-control form-control-sm " id="floatingInput"
+                                placeholder="Enter Your First Name">
+                        </div>
+
+                        <div class=" mb-3">
+                            <input type="text" class="form-control form-control-sm " id="floatingInput"
+                                placeholder="Enter Your Last Name">
+                        </div>
+
+                        <div class=" mb-3">
+                            <input type="text" class="form-control form-control-sm " id="floatingInput"
+                                placeholder="Enter Your Email Address">
+                        </div>
+
+                        <div class=" mb-3">
+                            <input type="text" class="form-control form-control-sm " id="floatingInput"
+                                placeholder="Enter Your Mobile Number">
+                        </div>
+                        <div class=" mb-3">
+                            <input type="text" class="form-control form-control-sm " id="floatingInput"
+                                placeholder="Enter Your Position">
+                        </div>
+
+                        
+                        <input type="submit" class="btn btn-sm text-white w-100" style="background-color: #001b41;"
+                            value="Submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end modal of update profile -->
+
+    <!-- start modal notification setting -->
+    <div class="modal fade  " id="notification" tabindex="-1" aria-labelledby="=ruttitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-custom-notifaction">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="ruttitle">Notification Settings</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">New Assignment</label>
+                                    <select class="form-select decorated" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option class="form-select-item" selected value="option1">Notification & Email
+                                        </option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Billing</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Projects</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Leads</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Tasks</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Support Tickets</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">Reminders</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="leads" class="form-label">System Notifications</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        style="height: 35px; font-size: 14px;">
+
+                                        <option selected value="option1">Notification & Email</option>
+                                        <option value="option2">Notification Only</option>
+                                        <option value="option3">Nothing</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-sm text-white w-50 "
+                                style="background-color: #001b41;">Submit </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end  modal notification setting -->
+
+    <!-- start modal change password -->
+    <div class="modal fade  " id="update_pass" tabindex="-1" aria-labelledby="=update_pass" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-custom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="update_pass">Change Password</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="text-secondary" style="font-size: 13px; ">
+                            Password should be of minimum of 6 characters. <br>
+                        </div>
+                        <div class=" mb-3">
+                            <input type="password" class="form-control form-control-sm " id="pass"
+                                placeholder="Enter New Password">
+                        </div>
+
+                        <div class=" mb-3">
+                            <input type="password" class="form-control form-control-sm " id="cnf_pass"
+                                placeholder="Confirm Password">
+                        </div>
+
+
+                        <input type="submit" class="btn btn-sm text-white w-100" style="background-color: #001b41;"
+                            value="Submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end modal change password -->
+
+   
+    <div class="row w-100">
+
+        <!--startSide nav bar -->
+
+        <div class="ms-4 col-md-2 d-flex card m-3 flex-column flex-shrink-0 p-3 text-white " id="width-adjust"
+            style="width: 18% !important; background-color: #001B41 ;   height: auto;">
+
+            <ul class="nav nav-pills flex-column mb-auto">
+
+                <li>
+                    <a href="#" class="nav-link   text-white sidenavbar-links">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.19 1.99994H12.75V7.99994V8.74994V13.7499H22V8.74994V7.99994V7.80994C22 4.16994 19.83 1.99994 16.19 1.99994Z"
+                                fill="" />
+                            <path
+                                d="M2 10.2499V15.2499V15.7499V16.1899C2 19.8299 4.17 21.9999 7.81 21.9999H11.25V15.7499V15.2499V10.2499H2Z"
+                                fill="" />
+                            <path d="M11.25 1.99994V8.74994H2V7.80994C2 4.16994 4.17 1.99994 7.81 1.99994H11.25Z"
+                                fill="" />
+                            <path d="M22 15.2501V16.1901C22 19.8301 19.83 22.0001 16.19 22.0001H12.75V15.2501H22Z"
+                                fill="" />
+                        </svg>
+                        <span class="text-collapse">
+
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./" class="nav-link active text-white sidenavbar-links">
+                        <svg width="18" height="16" viewBox="0 0 18 16" fill="#6D6D6D"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.73798 0C8.59092 0 10.107 1.51604 10.107 3.36899C10.107 5.22193 8.59092 6.73798 6.73798 6.73798C4.88503 6.73798 3.36899 5.22193 3.36899 3.36899C3.36899 1.51604 4.88503 0 6.73798 0ZM12.6337 14.3182L14.1498 15.809C14.5709 16.2301 15.1605 15.8932 15.1605 15.3963V11.7915L17.5187 8.92782C17.6126 8.80269 17.6697 8.65389 17.6838 8.49811C17.6978 8.34233 17.6682 8.18571 17.5983 8.04581C17.5283 7.90591 17.4208 7.78825 17.2877 7.70601C17.1547 7.62378 17.0014 7.58022 16.8449 7.58022H10.9492C10.2754 7.58022 9.85429 8.42247 10.2754 8.92782L12.6337 11.7915V14.3182ZM10.9492 12.381L9.01205 10.0227C8.67515 9.60162 8.5067 9.09627 8.5067 8.59092C7.91713 8.42247 7.32755 8.42247 6.73798 8.42247C3.03209 8.42247 0 9.93852 0 11.7915V13.476H10.9492V12.381Z"
+                                fill="" />
+                        </svg>
+
+                        <span class="text-collapse">
+
+                            Leads
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18 3H6C3.79 3 2 4.78 2 6.97V17.03C2 19.22 3.79 21 6 21H18C20.21 21 22 19.22 22 17.03V6.97C22 4.78 20.21 3 18 3ZM8.5 7.17C9.77 7.17 10.81 8.21 10.81 9.48C10.81 10.75 9.77 11.79 8.5 11.79C7.23 11.79 6.19 10.75 6.19 9.48C6.19 8.21 7.23 7.17 8.5 7.17ZM12.37 16.66C12.28 16.76 12.14 16.82 12 16.82H5C4.86 16.82 4.72 16.76 4.63 16.66C4.54 16.56 4.49 16.42 4.5 16.28C4.67 14.6 6.01 13.27 7.69 13.11C8.22 13.06 8.77 13.06 9.3 13.11C10.98 13.27 12.33 14.6 12.49 16.28C12.51 16.42 12.46 16.56 12.37 16.66ZM19 16.75H17C16.59 16.75 16.25 16.41 16.25 16C16.25 15.59 16.59 15.25 17 15.25H19C19.41 15.25 19.75 15.59 19.75 16C19.75 16.41 19.41 16.75 19 16.75ZM19 12.75H15C14.59 12.75 14.25 12.41 14.25 12C14.25 11.59 14.59 11.25 15 11.25H19C19.41 11.25 19.75 11.59 19.75 12C19.75 12.41 19.41 12.75 19 12.75ZM19 8.75H14C13.59 8.75 13.25 8.41 13.25 8C13.25 7.59 13.59 7.25 14 7.25H19C19.41 7.25 19.75 7.59 19.75 8C19.75 8.41 19.41 8.75 19 8.75Z"
+                                fill="white" />
+                        </svg>
+
+                        <span class="text-collapse">
+
+                            Lead Stages
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9 3.48747C5.415 3.48747 2.4975 6.40497 2.4975 9.98997C2.4975 13.575 5.415 16.5 9 16.5C12.585 16.5 15.5025 13.5825 15.5025 9.99747C15.5025 6.41247 12.585 3.48747 9 3.48747ZM9.5625 9.74997C9.5625 10.0575 9.3075 10.3125 9 10.3125C8.6925 10.3125 8.4375 10.0575 8.4375 9.74997V5.99997C8.4375 5.69247 8.6925 5.43747 9 5.43747C9.3075 5.43747 9.5625 5.69247 9.5625 5.99997V9.74997Z"
+                                fill="white" />
+                            <path
+                                d="M11.1675 2.58747H6.83248C6.53248 2.58747 6.29248 2.34747 6.29248 2.04747C6.29248 1.74747 6.53248 1.49997 6.83248 1.49997H11.1675C11.4675 1.49997 11.7075 1.73997 11.7075 2.03997C11.7075 2.33997 11.4675 2.58747 11.1675 2.58747Z"
+                                fill="white" />
+                        </svg>
+
+                        <span class="text-collapse">
+
+                            Time Sheets
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.39593 0H11.0038C11.9309 0 12.3941 8.34447e-08 12.7685 0.130397C13.1215 0.255505 13.4409 0.460321 13.7019 0.72893C13.9629 0.997539 14.1584 1.32271 14.2733 1.67916C14.3997 2.06475 14.3997 2.54154 14.3997 3.49592V14.6989C14.3997 15.3853 13.6117 15.7501 13.1133 15.2941C12.9735 15.1649 12.7901 15.0931 12.5997 15.0931C12.4093 15.0931 12.226 15.1649 12.0861 15.2941L11.6997 15.6477C11.4548 15.8742 11.1334 16 10.7998 16C10.4661 16 10.1447 15.8742 9.89978 15.6477C9.65482 15.4211 9.33345 15.2953 8.9998 15.2953C8.66616 15.2953 8.34478 15.4211 8.09982 15.6477C7.85486 15.8742 7.53349 16 7.19984 16C6.8662 16 6.54482 15.8742 6.29986 15.6477C6.0549 15.4211 5.73353 15.2953 5.39988 15.2953C5.06624 15.2953 4.74486 15.4211 4.4999 15.6477C4.25494 15.8742 3.93357 16 3.59992 16C3.26628 16 2.9449 15.8742 2.69994 15.6477L2.31355 15.2941C2.17372 15.1649 1.99034 15.0931 1.79996 15.0931C1.60958 15.0931 1.4262 15.1649 1.28637 15.2941C0.787983 15.7501 0 15.3853 0 14.6989V3.49592C0 2.54154 -1.19207e-08 2.06395 0.126397 1.67996C0.366392 0.949579 0.92238 0.376792 1.63116 0.130397C2.00556 8.34447e-08 2.46875 0 3.39593 0ZM9.64699 5.19989C9.75198 5.08112 9.80571 4.92563 9.79643 4.76738C9.78715 4.60913 9.71563 4.46098 9.59747 4.3553C9.47932 4.24961 9.32414 4.19498 9.16584 4.20334C9.00754 4.2117 8.85898 4.28237 8.75261 4.3999L6.34306 7.09904L5.64708 6.31986C5.54071 6.20232 5.39215 6.13166 5.23385 6.1233C5.07554 6.11494 4.92037 6.16957 4.80221 6.27525C4.68406 6.38094 4.61253 6.52909 4.60325 6.68734C4.59397 6.84559 4.6477 7.00108 4.7527 7.11984L5.89507 8.39982C5.95135 8.46286 6.02032 8.51331 6.09745 8.54785C6.17459 8.58239 6.25815 8.60024 6.34266 8.60024C6.42718 8.60024 6.51074 8.58239 6.58787 8.54785C6.665 8.51331 6.73397 8.46286 6.79025 8.39982L9.64779 5.19989H9.64699ZM3.59992 10.1998C3.44079 10.1998 3.28819 10.263 3.17567 10.3755C3.06315 10.488 2.99993 10.6406 2.99993 10.7998C2.99993 10.9589 3.06315 11.1115 3.17567 11.224C3.28819 11.3365 3.44079 11.3998 3.59992 11.3998H10.7998C10.9589 11.3998 11.1115 11.3365 11.224 11.224C11.3365 11.1115 11.3998 10.9589 11.3998 10.7998C11.3998 10.6406 11.3365 10.488 11.224 10.3755C11.1115 10.263 10.9589 10.1998 10.7998 10.1998H3.59992Z"
+                                fill="white" />
+                        </svg>
+
+
+                        <span class="text-collapse">
+
+                            Payment Proofs
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.1 6.3H13.05L8.1 1.35V6.3ZM1.8 0H9L14.4 5.4V16.2C14.4 16.6774 14.2104 17.1352 13.8728 17.4728C13.5352 17.8104 13.0774 18 12.6 18H1.8C1.32261 18 0.864773 17.8104 0.527208 17.4728C0.189642 17.1352 0 16.6774 0 16.2V1.8C0 0.801 0.801 0 1.8 0ZM9.9 14.4V12.6H1.8V14.4H9.9ZM12.6 10.8V9H1.8V10.8H12.6Z"
+                                fill="white" />
+                        </svg>
+
+
+                        <span class="text-collapse">
+
+                            Agreement Process
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.1425 1.5H5.8575C3.1275 1.5 1.5 3.1275 1.5 5.8575V12.135C1.5 14.8725 3.1275 16.5 5.8575 16.5H12.135C14.865 16.5 16.4925 14.8725 16.4925 12.1425V5.8575C16.5 3.1275 14.8725 1.5 12.1425 1.5ZM12.75 12.9375H5.25C4.9425 12.9375 4.6875 12.6825 4.6875 12.375C4.6875 12.0675 4.9425 11.8125 5.25 11.8125H12.75C13.0575 11.8125 13.3125 12.0675 13.3125 12.375C13.3125 12.6825 13.0575 12.9375 12.75 12.9375ZM12.75 9.5625H5.25C4.9425 9.5625 4.6875 9.3075 4.6875 9C4.6875 8.6925 4.9425 8.4375 5.25 8.4375H12.75C13.0575 8.4375 13.3125 8.6925 13.3125 9C13.3125 9.3075 13.0575 9.5625 12.75 9.5625ZM12.75 6.1875H5.25C4.9425 6.1875 4.6875 5.9325 4.6875 5.625C4.6875 5.3175 4.9425 5.0625 5.25 5.0625H12.75C13.0575 5.0625 13.3125 5.3175 13.3125 5.625C13.3125 5.9325 13.0575 6.1875 12.75 6.1875Z"
+                                fill="white" />
+                        </svg>
+
+
+
+                        <span class="text-collapse">
+
+                            Onboarding Form
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./task.html" class="nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.82 16.26H7.75C7.3 16.26 6.93 15.89 6.93 15.44C6.93 14.99 7.3 14.62 7.75 14.62H16.82C17.27 14.62 17.64 14.99 17.64 15.44C17.64 15.9 17.27 16.26 16.82 16.26Z"
+                                fill="white" />
+                            <path
+                                d="M16.82 9.97004H7.75C7.3 9.97004 6.93 9.60004 6.93 9.15004C6.93 8.70004 7.3 8.33004 7.75 8.33004H16.82C17.27 8.33004 17.64 8.70004 17.64 9.15004C17.64 9.60004 17.27 9.97004 16.82 9.97004Z"
+                                fill="white" />
+                            <path
+                                d="M16.82 3.67004H7.75C7.3 3.67004 6.93 3.30004 6.93 2.85004C6.93 2.40004 7.3 2.03004 7.75 2.03004H16.82C17.27 2.03004 17.64 2.40004 17.64 2.85004C17.64 3.30004 17.27 3.67004 16.82 3.67004Z"
+                                fill="white" />
+                            <path
+                                d="M1.73 5.03004C1.51 5.03004 1.3 4.94004 1.15 4.79004L0.24 3.88004C-0.08 3.56004 -0.08 3.04004 0.24 2.72004C0.56 2.40004 1.08 2.40004 1.4 2.72004L1.73 3.05004L3.87 0.910044C4.19 0.590044 4.71 0.590044 5.03 0.910044C5.35 1.23004 5.35 1.75004 5.03 2.07004L2.31 4.79004C2.15 4.94004 1.95 5.03004 1.73 5.03004Z"
+                                fill="white" />
+                            <path
+                                d="M1.73 11.33C1.52 11.33 1.31 11.25 1.15 11.09L0.24 10.18C-0.08 9.86004 -0.08 9.34004 0.24 9.02004C0.56 8.70004 1.08 8.70004 1.4 9.02004L1.73 9.35004L3.87 7.21004C4.19 6.89004 4.71 6.89004 5.03 7.21004C5.35 7.53004 5.35 8.05004 5.03 8.37004L2.31 11.09C2.15 11.25 1.94 11.33 1.73 11.33Z"
+                                fill="white" />
+                            <path
+                                d="M1.73 17.33C1.52 17.33 1.31 17.25 1.15 17.09L0.24 16.18C-0.08 15.86 -0.08 15.34 0.24 15.02C0.56 14.7 1.08 14.7 1.4 15.02L1.73 15.35L3.87 13.21C4.19 12.89 4.71 12.89 5.03 13.21C5.35 13.53 5.35 14.05 5.03 14.37L2.31 17.09C2.15 17.25 1.94 17.33 1.73 17.33Z"
+                                fill="white" />
+                        </svg>
+
+
+
+                        <span class="text-collapse">
+
+                            Tasks
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.75 2.625H5.25C3 2.625 1.5 3.75 1.5 6.375V11.625C1.5 14.25 3 15.375 5.25 15.375H12.75C15 15.375 16.5 14.25 16.5 11.625V6.375C16.5 3.75 15 2.625 12.75 2.625ZM13.1025 7.1925L10.755 9.0675C10.26 9.465 9.63 9.66 9 9.66C8.37 9.66 7.7325 9.465 7.245 9.0675L4.8975 7.1925C4.6575 6.9975 4.62 6.6375 4.8075 6.3975C5.0025 6.1575 5.355 6.1125 5.595 6.3075L7.9425 8.1825C8.5125 8.64 9.48 8.64 10.05 8.1825L12.3975 6.3075C12.6375 6.1125 12.9975 6.15 13.185 6.3975C13.38 6.6375 13.3425 6.9975 13.1025 7.1925Z"
+                                fill="white" />
+                        </svg>
+
+
+
+                        <span class="text-collapse">
+
+                            Email
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./message.html" class=" nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 5.06255C16.1391 5.06255 17.0625 4.13913 17.0625 3.00005C17.0625 1.86096 16.1391 0.937546 15 0.937546C13.8609 0.937546 12.9375 1.86096 12.9375 3.00005C12.9375 4.13913 13.8609 5.06255 15 5.06255Z"
+                                fill="white" />
+                            <path
+                                d="M14.2801 6.11255C13.1026 5.85755 12.1426 4.89755 11.8876 3.72005C11.7901 3.26255 11.7826 2.82005 11.8651 2.40005C11.9626 1.93505 11.6176 1.50005 11.1376 1.50005H5.25006C3.18006 1.50005 1.50006 3.18005 1.50006 5.25005V10.4625C1.50006 12.5325 3.18006 14.2125 5.25006 14.2125H6.37506C6.58506 14.2125 6.85506 14.3475 6.97506 14.5125L8.10006 16.005C8.59506 16.665 9.40506 16.665 9.90006 16.005L11.0251 14.5125C11.1676 14.325 11.3851 14.2125 11.6251 14.2125H12.7576C14.8276 14.2125 16.5001 12.54 16.5001 10.47V6.86255C16.5001 6.39005 16.0651 6.04505 15.6001 6.13505C15.1801 6.21005 14.7376 6.21005 14.2801 6.11255ZM6.00006 9.00005C5.58006 9.00005 5.25006 8.66255 5.25006 8.25005C5.25006 7.83755 5.58006 7.50005 6.00006 7.50005C6.41256 7.50005 6.75006 7.83755 6.75006 8.25005C6.75006 8.66255 6.42006 9.00005 6.00006 9.00005ZM9.00006 9.00005C8.58006 9.00005 8.25006 8.66255 8.25006 8.25005C8.25006 7.83755 8.58006 7.50005 9.00006 7.50005C9.41256 7.50005 9.75006 7.83755 9.75006 8.25005C9.75006 8.66255 9.42006 9.00005 9.00006 9.00005ZM12.0001 9.00005C11.5801 9.00005 11.2501 8.66255 11.2501 8.25005C11.2501 7.83755 11.5801 7.50005 12.0001 7.50005C12.4126 7.50005 12.7501 7.83755 12.7501 8.25005C12.7501 8.66255 12.4201 9.00005 12.0001 9.00005Z"
+                                fill="white" />
+                        </svg>
+
+
+
+                        <span class="text-collapse">
+
+                            Messages
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white sidenavbar-links">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.075 6.91504C13.7175 6.91504 13.1625 5.95504 13.8375 4.77754C14.2275 4.09504 13.995 3.22504 13.3125 2.83504L12.015 2.09254C11.4225 1.74004 10.6575 1.95004 10.305 2.54254L10.2225 2.68504C9.5475 3.86254 8.4375 3.86254 7.755 2.68504L7.6725 2.54254C7.335 1.95004 6.57 1.74004 5.9775 2.09254L4.68 2.83504C3.9975 3.22504 3.765 4.10254 4.155 4.78504C4.8375 5.95504 4.2825 6.91504 2.925 6.91504C2.145 6.91504 1.5 7.55254 1.5 8.34004V9.66004C1.5 10.44 2.1375 11.085 2.925 11.085C4.2825 11.085 4.8375 12.045 4.155 13.2225C3.765 13.905 3.9975 14.775 4.68 15.165L5.9775 15.9075C6.57 16.26 7.335 16.05 7.6875 15.4575L7.77 15.315C8.445 14.1375 9.555 14.1375 10.2375 15.315L10.32 15.4575C10.6725 16.05 11.4375 16.26 12.03 15.9075L13.3275 15.165C14.01 14.775 14.2425 13.8975 13.8525 13.2225C13.17 12.045 13.725 11.085 15.0825 11.085C15.8625 11.085 16.5075 10.4475 16.5075 9.66004V8.34004C16.5 7.56004 15.8625 6.91504 15.075 6.91504ZM9 11.4375C7.6575 11.4375 6.5625 10.3425 6.5625 9.00004C6.5625 7.65754 7.6575 6.56254 9 6.56254C10.3425 6.56254 11.4375 7.65754 11.4375 9.00004C11.4375 10.3425 10.3425 11.4375 9 11.4375Z"
+                                fill="white" />
+                        </svg>
+
+
+
+                        <span class="text-collapse">
+
+                            Settings
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!--end Side nav bar -->
+
+        <div class="col-auto table-custom-width">
+            <!-- start header -->
+            <div class="row m-3">
+                <div class="" style="font-weight: 500;font-size: 32px;">
+                    Leads
+                </div>
+                <div class="d-inline">
+
+                    <a href="./" class="" style="text-decoration: none; color: black;">Home</a> > Leads
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+
+                </div>
+                <div class="col-md-3 my-2 ms-auto me-auto">
+
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+
+                </div>
+                <div class="col-md-2 my-2 ms-auto me-auto" >
+
+                    <button class="btn form-control text-white" onclick="editreadonly()" data-bs-toggle="modal"
+                    data-bs-target="#myModal" style="background-color: #001B41;">
+                        <svg class="" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8 15C7.44772 15 7 14.5523 7 14V10C7 9.44772 6.55228 9 6 9H2C1.44772 9 1 8.55228 1 8C1 7.44772 1.44772 7 2 7H6C6.55228 7 7 6.55228 7 6V2C7 1.44772 7.44772 1 8 1C8.55228 1 9 1.44772 9 2V6C9 6.55228 9.44772 7 10 7H14C14.5523 7 15 7.44772 15 8C15 8.55228 14.5523 9 14 9H10C9.44772 9 9 9.44772 9 10V14C9 14.5523 8.55228 15 8 15Z"
+                                fill="white" stroke="white" />
+                        </svg>
+                        <span style="vertical-align: middle;">
+
+                            Add new
+                        </span>
+                    </button>
+
+
+                </div>
+                <div class="col-md-2 my-2 ms-auto me-auto" >
+
+                    <button class="btn form-control bg-white border-0" data-bs-toggle="modal"
+                        data-bs-target="#filter-modal">
+                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.14316 14C5.89525 14 5.68729 13.916 5.51929 13.748C5.35129 13.58 5.26758 13.3723 5.26816 13.125V7.875L0.193166 1.4C-0.0255838 1.10833 -0.0585421 0.802083 0.0942912 0.48125C0.247125 0.160417 0.513416 0 0.893166 0H13.1432C13.5223 0 13.7886 0.160417 13.942 0.48125C14.0955 0.802083 14.0625 1.10833 13.8432 1.4L8.76816 7.875V13.125C8.76816 13.3729 8.68416 13.5809 8.51616 13.7489C8.34816 13.9169 8.1405 14.0006 7.89316 14H6.14316Z"
+                                fill="#8D8D8D" />
+                        </svg>
+
+                        <span style="vertical-align: middle;color: #8D8D8D;">
+
+                            Filters
+                        </span>
+                        <div class=" text-white text-center d-inline rounded-circle "
+                            style="background-color: #001B41; vertical-align: middle ; padding-left:  5px ; padding-right:  5px ; ">
+                            1
+                        </div>
+                    </button>
+
+
+                </div>
+
+            </div>
+            <!-- end header -->
+            <!-- start table -->
+            <div class="card my-3 ms-3 p-3" style="min-height: fit-content; max-width: 100%;">
+                <div class="row">
+
+                    <div class=" text-center">
+                        <div class="table-responsive overflow-auto">
+                            <table style="border-color: transparent;" data-toggle="table" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th scope="col"   data-sortable="true">
+                                            Address
+                                        </th>
+                                        <th scope="col" class="  " data-sortable="true">Room No.</th>
+                                        <th scope="col" class="  " data-sortable="true">Post Code</th>
+                                        <th scope="col" class="   " data-sortable="true">Full Name</th>
+                                        <th scope="col" class="  " data-sortable="true">Phone</th>
+                                        <th scope="col" class="   " data-sortable="true">Email</th>
+                                        <th scope="col" class="   " data-sortable="true">Move-in Date</th>
+                                        <th scope="col" class="   " data-sortable="true">Check-out date</th>
+                                        <th scope="col" class="" data-sortable="true">Rent</th>
+                                        <th scope="col" class="   " data-sortable="true">Council Tax</th>
+                                        <th scope="col" class="   " data-sortable="true">Deposit</th>
+                                        <th scope="col" class="   " data-sortable="true">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="" scope="col">
+                                        <td>Property 1, Oxford</td>
+                                        <td>20</td>
+                                        <td>425012</td>
+                                        <td>Jane Doe</td>
+                                        <td>+919999999999</td>
+                                        <td>jane.doe@gmail.com</td>
+                                        <td>12/12/2012</td>
+                                        <td>12/12/2012</td>
+                                        <td>&#163; 2000</td>
+                                        <td>&#163; 2000</td>
+                                        <td>&#163; 2000</td>
+                                        
+                                        <td>
+                                            <a href="" onclick="editreadonly()" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+
+
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M14 14.6667H2C1.72667 14.6667 1.5 14.44 1.5 14.1667C1.5 13.8933 1.72667 13.6667 2 13.6667H14C14.2733 13.6667 14.5 13.8933 14.5 14.1667C14.5 14.44 14.2733 14.6667 14 14.6667Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M12.6798 2.31994C11.3864 1.02661 10.1198 0.993275 8.7931 2.31994L7.98643 3.12661C7.91976 3.19328 7.8931 3.29994 7.91976 3.39328C8.42643 5.15994 9.83976 6.57328 11.6064 7.07994C11.6331 7.08661 11.6598 7.09328 11.6864 7.09328C11.7598 7.09328 11.8264 7.06661 11.8798 7.01328L12.6798 6.20661C13.3398 5.55328 13.6598 4.91994 13.6598 4.27994C13.6664 3.61994 13.3464 2.97994 12.6798 2.31994Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M10.4069 7.6867C10.2136 7.59337 10.0269 7.50004 9.84692 7.39337C9.70025 7.3067 9.56025 7.21337 9.42025 7.11337C9.30692 7.04004 9.17359 6.93337 9.04692 6.8267C9.03359 6.82004 8.98692 6.78004 8.93359 6.7267C8.71359 6.54004 8.46692 6.30004 8.24692 6.03337C8.22692 6.02004 8.19359 5.97337 8.14692 5.91337C8.08025 5.83337 7.96692 5.70004 7.86692 5.5467C7.78692 5.4467 7.69359 5.30004 7.60692 5.15337C7.50025 4.97337 7.40692 4.79337 7.31359 4.6067V4.6067C7.19121 4.34448 6.84704 4.26658 6.64243 4.4712L2.89359 8.22004C2.80692 8.3067 2.72692 8.47337 2.70692 8.5867L2.34692 11.14C2.28025 11.5934 2.40692 12.02 2.68692 12.3067C2.92692 12.54 3.26025 12.6667 3.62025 12.6667C3.70025 12.6667 3.78025 12.66 3.86025 12.6467L6.42025 12.2867C6.54025 12.2667 6.70692 12.1867 6.78692 12.1L10.5419 8.34501C10.7425 8.14448 10.6671 7.79946 10.4069 7.6867V7.6867Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="">
+
+
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.75 2.625H5.25C3 2.625 1.5 3.75 1.5 6.375V11.625C1.5 14.25 3 15.375 5.25 15.375H12.75C15 15.375 16.5 14.25 16.5 11.625V6.375C16.5 3.75 15 2.625 12.75 2.625ZM13.1025 7.1925L10.755 9.0675C10.26 9.465 9.63 9.66 9 9.66C8.37 9.66 7.7325 9.465 7.245 9.0675L4.8975 7.1925C4.6575 6.9975 4.62 6.6375 4.8075 6.3975C5.0025 6.1575 5.355 6.1125 5.595 6.3075L7.9425 8.1825C8.5125 8.64 9.48 8.64 10.05 8.1825L12.3975 6.3075C12.6375 6.1125 12.9975 6.15 13.185 6.3975C13.38 6.6375 13.3425 6.9975 13.1025 7.1925Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="" onclick="viewreadonly()" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+
+                                                <svg width="17" height="12" viewBox="0 0 17 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.25 0C4.5 0 1.2975 2.3325 0 5.625C1.2975 8.9175 4.5 11.25 8.25 11.25C12 11.25 15.2025 8.9175 16.5 5.625C15.2025 2.3325 12 0 8.25 0ZM8.25 9.375C6.18 9.375 4.5 7.695 4.5 5.625C4.5 3.555 6.18 1.875 8.25 1.875C10.32 1.875 12 3.555 12 5.625C12 7.695 10.32 9.375 8.25 9.375ZM8.25 3.375C7.005 3.375 6 4.38 6 5.625C6 6.87 7.005 7.875 8.25 7.875C9.495 7.875 10.5 6.87 10.5 5.625C10.5 4.38 9.495 3.375 8.25 3.375Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="">
+
+
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M14.0464 3.48662C12.973 3.37995 11.8997 3.29995 10.8197 3.23995V3.23328L10.673 2.36662C10.573 1.75328 10.4264 0.833282 8.86637 0.833282H7.1197C5.56637 0.833282 5.4197 1.71328 5.31303 2.35995L5.17303 3.21328C4.55303 3.25328 3.93303 3.29328 3.31303 3.35328L1.95303 3.48662C1.67303 3.51328 1.47303 3.75995 1.4997 4.03328C1.52636 4.30662 1.76636 4.50662 2.04636 4.47995L3.40636 4.34662C6.8997 3.99995 10.4197 4.13328 13.953 4.48662C13.973 4.48662 13.9864 4.48662 14.0064 4.48662C14.2597 4.48662 14.4797 4.29328 14.5064 4.03328C14.5264 3.75995 14.3264 3.51328 14.0464 3.48662Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M12.8199 5.42672C12.6599 5.26005 12.4399 5.16672 12.2132 5.16672H3.78658C3.55991 5.16672 3.33325 5.26005 3.17991 5.42672C3.02658 5.59338 2.93991 5.82005 2.95325 6.05338L3.36658 12.8934C3.43991 13.9067 3.53325 15.1734 5.85991 15.1734H10.1399C12.4666 15.1734 12.5599 13.9134 12.6332 12.8934L13.0466 6.06005C13.0599 5.82005 12.9732 5.59338 12.8199 5.42672ZM9.10658 11.8334H6.88658C6.61325 11.8334 6.38658 11.6067 6.38658 11.3334C6.38658 11.0601 6.61325 10.8334 6.88658 10.8334H9.10658C9.37991 10.8334 9.60658 11.0601 9.60658 11.3334C9.60658 11.6067 9.37991 11.8334 9.10658 11.8334ZM9.66658 9.16672H6.33325C6.05991 9.16672 5.83325 8.94005 5.83325 8.66672C5.83325 8.39338 6.05991 8.16672 6.33325 8.16672H9.66658C9.93991 8.16672 10.1666 8.39338 10.1666 8.66672C10.1666 8.94005 9.93991 9.16672 9.66658 9.16672Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr id="" scope="col">
+                                        <td>Property 1, Oxford</td>
+                                        <td>20</td>
+                                        <td>425012</td>
+                                        <td>Jane Doe</td>
+                                        <td>+919999999999</td>
+                                        <td>jane.doe@gmail.com</td>
+                                        <td>12/12/2012</td>
+                                        <td>12/12/2012</td>
+                                        <td>&#163; 2000</td>
+                                        <td>&#163; 2000</td>
+                                        <td>&#163; 2000</td>
+                                        
+                                        <td>
+                                            <a href="" onclick="editreadonly()" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+
+
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M14 14.6667H2C1.72667 14.6667 1.5 14.44 1.5 14.1667C1.5 13.8933 1.72667 13.6667 2 13.6667H14C14.2733 13.6667 14.5 13.8933 14.5 14.1667C14.5 14.44 14.2733 14.6667 14 14.6667Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M12.6798 2.31994C11.3864 1.02661 10.1198 0.993275 8.7931 2.31994L7.98643 3.12661C7.91976 3.19328 7.8931 3.29994 7.91976 3.39328C8.42643 5.15994 9.83976 6.57328 11.6064 7.07994C11.6331 7.08661 11.6598 7.09328 11.6864 7.09328C11.7598 7.09328 11.8264 7.06661 11.8798 7.01328L12.6798 6.20661C13.3398 5.55328 13.6598 4.91994 13.6598 4.27994C13.6664 3.61994 13.3464 2.97994 12.6798 2.31994Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M10.4069 7.6867C10.2136 7.59337 10.0269 7.50004 9.84692 7.39337C9.70025 7.3067 9.56025 7.21337 9.42025 7.11337C9.30692 7.04004 9.17359 6.93337 9.04692 6.8267C9.03359 6.82004 8.98692 6.78004 8.93359 6.7267C8.71359 6.54004 8.46692 6.30004 8.24692 6.03337C8.22692 6.02004 8.19359 5.97337 8.14692 5.91337C8.08025 5.83337 7.96692 5.70004 7.86692 5.5467C7.78692 5.4467 7.69359 5.30004 7.60692 5.15337C7.50025 4.97337 7.40692 4.79337 7.31359 4.6067V4.6067C7.19121 4.34448 6.84704 4.26658 6.64243 4.4712L2.89359 8.22004C2.80692 8.3067 2.72692 8.47337 2.70692 8.5867L2.34692 11.14C2.28025 11.5934 2.40692 12.02 2.68692 12.3067C2.92692 12.54 3.26025 12.6667 3.62025 12.6667C3.70025 12.6667 3.78025 12.66 3.86025 12.6467L6.42025 12.2867C6.54025 12.2667 6.70692 12.1867 6.78692 12.1L10.5419 8.34501C10.7425 8.14448 10.6671 7.79946 10.4069 7.6867V7.6867Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="">
+
+
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.75 2.625H5.25C3 2.625 1.5 3.75 1.5 6.375V11.625C1.5 14.25 3 15.375 5.25 15.375H12.75C15 15.375 16.5 14.25 16.5 11.625V6.375C16.5 3.75 15 2.625 12.75 2.625ZM13.1025 7.1925L10.755 9.0675C10.26 9.465 9.63 9.66 9 9.66C8.37 9.66 7.7325 9.465 7.245 9.0675L4.8975 7.1925C4.6575 6.9975 4.62 6.6375 4.8075 6.3975C5.0025 6.1575 5.355 6.1125 5.595 6.3075L7.9425 8.1825C8.5125 8.64 9.48 8.64 10.05 8.1825L12.3975 6.3075C12.6375 6.1125 12.9975 6.15 13.185 6.3975C13.38 6.6375 13.3425 6.9975 13.1025 7.1925Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="" onclick="viewreadonly()" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+
+                                                <svg width="17" height="12" viewBox="0 0 17 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.25 0C4.5 0 1.2975 2.3325 0 5.625C1.2975 8.9175 4.5 11.25 8.25 11.25C12 11.25 15.2025 8.9175 16.5 5.625C15.2025 2.3325 12 0 8.25 0ZM8.25 9.375C6.18 9.375 4.5 7.695 4.5 5.625C4.5 3.555 6.18 1.875 8.25 1.875C10.32 1.875 12 3.555 12 5.625C12 7.695 10.32 9.375 8.25 9.375ZM8.25 3.375C7.005 3.375 6 4.38 6 5.625C6 6.87 7.005 7.875 8.25 7.875C9.495 7.875 10.5 6.87 10.5 5.625C10.5 4.38 9.495 3.375 8.25 3.375Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                            <a href="">
+
+
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M14.0464 3.48662C12.973 3.37995 11.8997 3.29995 10.8197 3.23995V3.23328L10.673 2.36662C10.573 1.75328 10.4264 0.833282 8.86637 0.833282H7.1197C5.56637 0.833282 5.4197 1.71328 5.31303 2.35995L5.17303 3.21328C4.55303 3.25328 3.93303 3.29328 3.31303 3.35328L1.95303 3.48662C1.67303 3.51328 1.47303 3.75995 1.4997 4.03328C1.52636 4.30662 1.76636 4.50662 2.04636 4.47995L3.40636 4.34662C6.8997 3.99995 10.4197 4.13328 13.953 4.48662C13.973 4.48662 13.9864 4.48662 14.0064 4.48662C14.2597 4.48662 14.4797 4.29328 14.5064 4.03328C14.5264 3.75995 14.3264 3.51328 14.0464 3.48662Z"
+                                                        fill="#8D8D8D" />
+                                                    <path
+                                                        d="M12.8199 5.42672C12.6599 5.26005 12.4399 5.16672 12.2132 5.16672H3.78658C3.55991 5.16672 3.33325 5.26005 3.17991 5.42672C3.02658 5.59338 2.93991 5.82005 2.95325 6.05338L3.36658 12.8934C3.43991 13.9067 3.53325 15.1734 5.85991 15.1734H10.1399C12.4666 15.1734 12.5599 13.9134 12.6332 12.8934L13.0466 6.06005C13.0599 5.82005 12.9732 5.59338 12.8199 5.42672ZM9.10658 11.8334H6.88658C6.61325 11.8334 6.38658 11.6067 6.38658 11.3334C6.38658 11.0601 6.61325 10.8334 6.88658 10.8334H9.10658C9.37991 10.8334 9.60658 11.0601 9.60658 11.3334C9.60658 11.6067 9.37991 11.8334 9.10658 11.8334ZM9.66658 9.16672H6.33325C6.05991 9.16672 5.83325 8.94005 5.83325 8.66672C5.83325 8.39338 6.05991 8.16672 6.33325 8.16672H9.66658C9.93991 8.16672 10.1666 8.39338 10.1666 8.66672C10.1666 8.94005 9.93991 9.16672 9.66658 9.16672Z"
+                                                        fill="#8D8D8D" />
+                                                </svg>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                   
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end table -->
+
+
+
+        <!-- start filter -->
+
+
+
+        <div class=" modal  fade  " id="filter-modal" tabindex="-1" aria-labelledby="filter" aria-hidden="true">
+            <div class="modal-dialog" id="filter-dialog" style="margin-left: auto; margin-right: 0;">
+                <div class="modal-content px-3">
+
+
+                    <h4 class="modal-title  ms-auto mb-0 me-auto mt-3" id="filter">Filters</h4>
+                    <hr class="hr w-25 text-black mt-0 ms-auto me-auto">
+                    <button type="button" class="btn-close position-absolute end-0 me-3 top-0 mt-3"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <form action="" class="">
+
+                        <h6 class="my-2 ms-3">Location</h6>
+                        <div class="row g-0">
+                            <div class="col-auto my-1">
+                                <input id="apartment" class="checkbox-custom" name="apartment" type="checkbox">
+                                <label for="apartment" class="checkbox-custom-label">Apartment</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="flat" class="checkbox-custom" name="flat" type="checkbox">
+                                <label for="flat" class="checkbox-custom-label">Flat</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="building" class="checkbox-custom" name="building" type="checkbox">
+                                <label for="building" class="checkbox-custom-label">Building</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="pg" class="checkbox-custom" name="pg" type="checkbox">
+                                <label for="pg" class="checkbox-custom-label">PG</label>
+                            </div>
+                        </div>
+                        <hr class="hr ms-auto me-auto" style="width: 90%;">
+                        <h6 class="my-2 ms-3">Property Type</h6>
+                        <div class="row g-0">
+                            <div class="col-auto my-1">
+                                <input id="apartment1" class="checkbox-custom" name="apartment" type="checkbox">
+                                <label for="apartment1" class="checkbox-custom-label">Apartment</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="flat1" class="checkbox-custom" name="flat" type="checkbox">
+                                <label for="flat1" class="checkbox-custom-label">Flat</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="building1" class="checkbox-custom" name="building" type="checkbox">
+                                <label for="building1" class="checkbox-custom-label">Building</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="pg1" class="checkbox-custom" name="pg" type="checkbox">
+                                <label for="pg1" class="checkbox-custom-label">PG</label>
+                            </div>
+                        </div>
+                        <hr class="hr ms-auto me-auto" style="width: 90%;">
+                        <h6 class="my-2 ms-3">Duration</h6>
+                        <div class="row g-0">
+                            <div class="col-auto my-1">
+                                <input id="apartment2" class="checkbox-custom" name="apartment" type="checkbox">
+                                <label for="apartment2" class="checkbox-custom-label">Apartment</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="flat2" class="checkbox-custom" name="flat" type="checkbox">
+                                <label for="flat2" class="checkbox-custom-label">Flat</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="building2" class="checkbox-custom" name="building" type="checkbox">
+                                <label for="building2" class="checkbox-custom-label">Building</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="pg2" class="checkbox-custom" name="pg" type="checkbox">
+                                <label for="pg2" class="checkbox-custom-label">PG</label>
+                            </div>
+                        </div>
+                        <hr class="hr ms-auto me-auto" style="width: 90%;">
+                        <h6 class="my-2 ms-3">Budget</h6>
+                        <div class="row g-0">
+                            <div class="col-auto my-1">
+                                <input id="apartment3" class="checkbox-custom" name="apartment" type="checkbox">
+                                <label for="apartment3" class="checkbox-custom-label">Apartment</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="flat3" class="checkbox-custom" name="flat" type="checkbox">
+                                <label for="flat3" class="checkbox-custom-label">Flat</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="building3" class="checkbox-custom" name="building" type="checkbox">
+                                <label for="building3" class="checkbox-custom-label">Building</label>
+                            </div>
+                            <div class="col-auto my-1">
+                                <input id="pg3" class="checkbox-custom" name="pg" type="checkbox">
+                                <label for="pg3" class="checkbox-custom-label">PG</label>
+                            </div>
+                        </div>
+                        <hr class="hr ms-auto me-auto" style="width: 90%;">
+                        <div class="text-center">
+
+                            <button type="submit" class="btn btn-sm w-75  mt-5 mb-3"
+                                style="background-color: #001B41; color: white;">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- end filter -->
+
+        <!-- start modal  -->
+        <div class="modal fade  custom-modal " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+
+                <div class="modal-content ">
+
+                    <div class="modal-body  ">
+                        <div class="tab_sec row">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs border-0 " id="myTabs" role="tablist">
+                                <li class="nav-item ">
+                                    <a class="nav-link nav-link-modal active" id="tab1-tab" data-bs-toggle="tab"
+                                        href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Lead
+                                        Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-modal" id="tab2-tab" data-bs-toggle="tab" href="#tab2"
+                                        role="tab" aria-controls="tab2" aria-selected="false">Information</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-modal" id="tab3-tab" data-bs-toggle="tab" href="#tab3"
+                                        role="tab" aria-controls="tab3" aria-selected="false">My Notes</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab content -->
+                            <div class="tab-content border-0 col-md-9 bg-white" id="myTabsContent">
+                                <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+                                    aria-labelledby="tab1-tab">
+                                    <div class="row">
+                                        <div class="ms-4 mt-2 col-auto">
+                                            <span class="" style="font-size: 20px; color: black; ">
+
+                                                Overview
+                                                <div class="border-bottom ms-auto me-auto border-dark w-75">
+
+                                                </div>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="row px-2">
+                                        <form class="row g-3 m-3">
+                                            <div class="col-md-6">
+                                                <label for="name-modal" class="form-label ">Name</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="name-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="email-modal" class="form-label">Email</label>
+                                                <input type="email" class="form-control input-control form-control-sm"
+                                                    id="email-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="phone-modal" class="form-label">Phone</label>
+                                                <input type="number" class="form-control input-control form-control-sm"
+                                                    id="phone-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="budget-modal" class="form-label">Budget</label>
+                                                <input type="number" class="form-control input-control form-control-sm"
+                                                    id="budget-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tenant-modal" class="form-label">Tenant</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="tenant-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="dur-modal" class="form-label">Duration (in months)</label>
+                                                <input type="number" class="form-control input-control form-control-sm"
+                                                    id="dur-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="add-modal" class="form-label">Address</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="add-modal">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="city-modal" class="form-label">City</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="city-modal">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="state-modal" class="form-label">State</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="state-modal">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="country-modal" class="form-label">Country</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="country-modal">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="post-code-modal" class="form-label">Postal Code</label>
+                                                <input type="text" class="form-control input-control form-control-sm"
+                                                    id="post-code-modal">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="description" class="form-label">Description</label>
+                                                <textarea name="" id=" description"
+                                                    class="form-control input-control form-control-sm" cols="30"
+                                                    rows="5"></textarea>
+
+                                            </div>
+
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button type="reset" class="btn btn-md mx-2 "
+                                                    style="background-color: #EAEAEA; color: #6D6D6D; width: 150px;">Cancel</button>
+                                                <button type="submit" class="btn btn-md "
+                                                    style="background-color: #001B41; color: white; width: 150px;">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                                    <div class="row">
+                                        <div class="ms-4 mt-2 col-auto">
+                                            <span class="" style="font-size: 20px; color: black; ">
+
+                                                Househat CRM
+                                                <div class="border-bottom ms-auto me-auto border-dark w-75">
+
+                                                </div>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="row px-2">
+                                        <div class=" m-3">
+                                            <div class="col-12 mb-2">
+                                                <label for="description" class="form-label">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+
+                                                        <path id="Vector"
+                                                            d="M10.6668 1.33334H5.3335C2.66683 1.33334 1.3335 2.66668 1.3335 5.33334V14C1.3335 14.3667 1.6335 14.6667 2.00016 14.6667H10.6668C13.3335 14.6667 14.6668 13.3333 14.6668 10.6667V5.33334C14.6668 2.66668 13.3335 1.33334 10.6668 1.33334ZM9.3335 10.1667H4.66683C4.3935 10.1667 4.16683 9.94001 4.16683 9.66668C4.16683 9.39334 4.3935 9.16668 4.66683 9.16668H9.3335C9.60683 9.16668 9.8335 9.39334 9.8335 9.66668C9.8335 9.94001 9.60683 10.1667 9.3335 10.1667ZM11.3335 6.83334H4.66683C4.3935 6.83334 4.16683 6.60668 4.16683 6.33334C4.16683 6.06001 4.3935 5.83334 4.66683 5.83334H11.3335C11.6068 5.83334 11.8335 6.06001 11.8335 6.33334C11.8335 6.60668 11.6068 6.83334 11.3335 6.83334Z"
+                                                            fill="#6D6D6D" />
+
+                                                    </svg>
+                                                    <span style="vertical-align: middle;">
+
+                                                        Description
+                                                    </span>
+                                                </label>
+                                                <textarea name="" id=" description"
+                                                    class="input-control form-control form-control-sm" cols="30"
+                                                    rows="2"></textarea>
+                                                <div class=" col-md-12 d-flex justify-content-end">
+
+                                                    <button type="submit"
+                                                        class="text-start btn btn-md m-2 border border-secondary"
+                                                        style="background-color: #fff; width: 200px;color: #6D6D6D;">
+                                                        <svg width="12" class="mx-2" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M10.5 11H1.5C1.295 11 1.125 10.83 1.125 10.625C1.125 10.42 1.295 10.25 1.5 10.25H10.5C10.705 10.25 10.875 10.42 10.875 10.625C10.875 10.83 10.705 11 10.5 11Z"
+                                                                fill="#8D8D8D" />
+                                                            <path
+                                                                d="M9.50979 1.74C8.53979 0.770002 7.58979 0.745002 6.59479 1.74L5.98979 2.345C5.93979 2.395 5.91979 2.475 5.93979 2.545C6.31979 3.87 7.37979 4.93 8.70479 5.31C8.72479 5.315 8.74479 5.32 8.76479 5.32C8.81979 5.32 8.86979 5.3 8.90979 5.26L9.50979 4.655C10.0048 4.165 10.2448 3.69 10.2448 3.21C10.2498 2.715 10.0098 2.235 9.50979 1.74Z"
+                                                                fill="#8D8D8D" />
+                                                            <path
+                                                                d="M7.80516 5.76501C7.66016 5.69501 7.52016 5.62501 7.38516 5.54501C7.27516 5.48001 7.17016 5.41001 7.06516 5.33501C6.98016 5.28001 6.88016 5.20001 6.78516 5.12001C6.77516 5.11501 6.74016 5.08501 6.70016 5.04501C6.53516 4.90501 6.35016 4.72501 6.18516 4.52501C6.17016 4.51501 6.14516 4.48001 6.11016 4.43501C6.06016 4.37501 5.97516 4.27501 5.90016 4.16001C5.84016 4.08501 5.77016 3.97501 5.70516 3.86501C5.62516 3.73001 5.55516 3.59501 5.48516 3.45501C5.39338 3.25834 5.13525 3.19992 4.98179 3.35338L2.17016 6.16501C2.10516 6.23001 2.04516 6.35501 2.03016 6.44001L1.76016 8.35501C1.71016 8.69501 1.80516 9.01501 2.01516 9.23001C2.19516 9.40501 2.44516 9.50001 2.71516 9.50001C2.77516 9.50001 2.83516 9.49501 2.89516 9.48501L4.81516 9.21501C4.90516 9.20001 5.03016 9.14001 5.09016 9.07501L7.90643 6.25874C8.05682 6.10834 8.00032 5.84958 7.80516 5.76501Z"
+                                                                fill="#8D8D8D" />
+                                                        </svg> Edit description
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.793 1.33336H5.20634C2.77967 1.33336 1.33301 2.78003 1.33301 5.20669V10.7867C1.33301 13.22 2.77967 14.6667 5.20634 14.6667H10.7863C13.213 14.6667 14.6597 13.22 14.6597 10.7934V5.20669C14.6663 2.78003 13.2197 1.33336 10.793 1.33336ZM11.1863 6.46669L7.40634 10.2467C7.31301 10.34 7.18634 10.3934 7.05301 10.3934C6.91967 10.3934 6.79301 10.34 6.69967 10.2467L4.81301 8.36003C4.61967 8.16669 4.61967 7.84669 4.81301 7.65336C5.00634 7.46003 5.32634 7.46003 5.51967 7.65336L7.05301 9.18669L10.4797 5.76003C10.673 5.56669 10.993 5.56669 11.1863 5.76003C11.3797 5.95336 11.3797 6.26669 11.1863 6.46669Z"
+                                                        fill="#6D6D6D" />
+                                                </svg>
+                                                <span style="vertical-align: middle;">
+
+                                                    Checklist
+                                                </span>
+                                                <div class="card p-2">
+                                                    <div class="form-check ">
+                                                        <div class="row">
+
+                                                            <div class="col-auto" style="width: 80%;">
+
+                                                                <input class="form-check-input input-control-select"
+                                                                    type="checkbox" value="" id="flexCheckDefault">
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                    Default checkbox
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-auto d-flex justify-content-end"
+                                                                style="width: 20%;">
+
+                                                                <svg style="vertical-align: middle;" width="14"
+                                                                    height="14" viewBox="0 0 14 14" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M12.2905 3.05083C11.3513 2.9575 10.4121 2.8875 9.46714 2.835V2.82916L9.33881 2.07083C9.25131 1.53416 9.12298 0.729164 7.75798 0.729164H6.22964C4.87048 0.729164 4.74214 1.49916 4.64881 2.065L4.52631 2.81166C3.98381 2.84666 3.44131 2.88166 2.89881 2.93416L1.70881 3.05083C1.46381 3.07416 1.28881 3.29 1.31214 3.52916C1.33548 3.76833 1.54548 3.94333 1.79048 3.92L2.98048 3.80333C6.03714 3.5 9.11714 3.61666 12.2088 3.92583C12.2263 3.92583 12.238 3.92583 12.2555 3.92583C12.4771 3.92583 12.6696 3.75666 12.693 3.52916C12.7105 3.29 12.5355 3.07416 12.2905 3.05083Z"
+                                                                        fill="#292D32" />
+                                                                    <path
+                                                                        d="M11.2175 4.74834C11.0775 4.6025 10.885 4.52084 10.6867 4.52084H3.31335C3.11502 4.52084 2.91668 4.6025 2.78252 4.74834C2.64835 4.89417 2.57252 5.0925 2.58418 5.29667L2.94585 11.2817C3.01002 12.1683 3.09168 13.2767 5.12752 13.2767H8.87252C10.9083 13.2767 10.99 12.1742 11.0542 11.2817L11.4158 5.3025C11.4275 5.0925 11.3517 4.89417 11.2175 4.74834ZM7.96835 10.3542H6.02585C5.78668 10.3542 5.58835 10.1558 5.58835 9.91667C5.58835 9.6775 5.78668 9.47917 6.02585 9.47917H7.96835C8.20752 9.47917 8.40585 9.6775 8.40585 9.91667C8.40585 10.1558 8.20752 10.3542 7.96835 10.3542ZM8.45835 8.02084H5.54168C5.30252 8.02084 5.10418 7.8225 5.10418 7.58334C5.10418 7.34417 5.30252 7.14584 5.54168 7.14584H8.45835C8.69752 7.14584 8.89585 7.34417 8.89585 7.58334C8.89585 7.8225 8.69752 8.02084 8.45835 8.02084Z"
+                                                                        fill="#292D32" />
+                                                                </svg>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-check ">
+                                                        <div class="row">
+
+                                                            <div class="col-auto" style="width: 80%;">
+
+                                                                <input class="form-check-input input-control-select"
+                                                                    type="checkbox" value="" id="flexCheckDefault">
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                    Default checkbox
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-auto d-flex justify-content-end"
+                                                                style="width: 20%;">
+
+                                                                <svg style="vertical-align: middle;" width="14"
+                                                                    height="14" viewBox="0 0 14 14" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M12.2905 3.05083C11.3513 2.9575 10.4121 2.8875 9.46714 2.835V2.82916L9.33881 2.07083C9.25131 1.53416 9.12298 0.729164 7.75798 0.729164H6.22964C4.87048 0.729164 4.74214 1.49916 4.64881 2.065L4.52631 2.81166C3.98381 2.84666 3.44131 2.88166 2.89881 2.93416L1.70881 3.05083C1.46381 3.07416 1.28881 3.29 1.31214 3.52916C1.33548 3.76833 1.54548 3.94333 1.79048 3.92L2.98048 3.80333C6.03714 3.5 9.11714 3.61666 12.2088 3.92583C12.2263 3.92583 12.238 3.92583 12.2555 3.92583C12.4771 3.92583 12.6696 3.75666 12.693 3.52916C12.7105 3.29 12.5355 3.07416 12.2905 3.05083Z"
+                                                                        fill="#292D32" />
+                                                                    <path
+                                                                        d="M11.2175 4.74834C11.0775 4.6025 10.885 4.52084 10.6867 4.52084H3.31335C3.11502 4.52084 2.91668 4.6025 2.78252 4.74834C2.64835 4.89417 2.57252 5.0925 2.58418 5.29667L2.94585 11.2817C3.01002 12.1683 3.09168 13.2767 5.12752 13.2767H8.87252C10.9083 13.2767 10.99 12.1742 11.0542 11.2817L11.4158 5.3025C11.4275 5.0925 11.3517 4.89417 11.2175 4.74834ZM7.96835 10.3542H6.02585C5.78668 10.3542 5.58835 10.1558 5.58835 9.91667C5.58835 9.6775 5.78668 9.47917 6.02585 9.47917H7.96835C8.20752 9.47917 8.40585 9.6775 8.40585 9.91667C8.40585 10.1558 8.20752 10.3542 7.96835 10.3542ZM8.45835 8.02084H5.54168C5.30252 8.02084 5.10418 7.8225 5.10418 7.58334C5.10418 7.34417 5.30252 7.14584 5.54168 7.14584H8.45835C8.69752 7.14584 8.89585 7.34417 8.89585 7.58334C8.89585 7.8225 8.69752 8.02084 8.45835 8.02084Z"
+                                                                        fill="#292D32" />
+                                                                </svg>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-end">
+
+                                                    <button type="submit"
+                                                        class="btn text-start btn-md m-2 border border-secondary"
+                                                        style="background-color: #fff; width: 200px;color: #6D6D6D;">
+                                                        <svg width="12" class="mx-2" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M6 12C5.52661 12 5.14286 11.6162 5.14286 11.1429V7.85714C5.14286 7.30486 4.69514 6.85714 4.14286 6.85714H0.857144C0.383757 6.85714 0 6.47339 0 6V6C0 5.52661 0.383756 5.14286 0.857143 5.14286H4.14286C4.69514 5.14286 5.14286 4.69514 5.14286 4.14286V0.857144C5.14286 0.383757 5.52661 0 6 0V0C6.47339 0 6.85714 0.383756 6.85714 0.857143V4.14286C6.85714 4.69514 7.30486 5.14286 7.85714 5.14286H11.1429C11.6162 5.14286 12 5.52661 12 6V6C12 6.47339 11.6162 6.85714 11.1429 6.85714H7.85714C7.30486 6.85714 6.85714 7.30486 6.85714 7.85714V11.1429C6.85714 11.6162 6.47339 12 6 12V12Z"
+                                                                fill="#6D6D6D" />
+                                                        </svg>
+                                                        Add item
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.3865 13.1334C8.97988 13.2334 8.97988 15.2734 10.3865 15.3734H13.7265C14.1332 15.3734 14.5199 15.2267 14.8199 14.9534C15.8065 14.0934 15.2799 12.36 13.9799 12.2C13.5132 9.38668 9.43988 10.4534 10.4065 13.1334"
+                                                        fill="#6D6D6D" />
+                                                    <path
+                                                        d="M10.3865 13.1334C8.97988 13.2334 8.97988 15.2734 10.3865 15.3734H13.7265C14.1332 15.3734 14.5199 15.2267 14.8199 14.9534C15.8065 14.0934 15.2799 12.36 13.9799 12.2C13.5132 9.38668 9.43988 10.4534 10.4065 13.1334"
+                                                        fill="#6D6D6D" />
+                                                    <path
+                                                        d="M14.6663 7.37995V10.2266C14.6663 10.44 14.3263 10.5333 14.1797 10.38C13.8663 10.0533 13.473 9.80662 13.0197 9.66662C11.973 9.33995 10.7663 9.65995 10.0063 10.4466C9.52634 10.96 9.26634 11.6 9.25301 12.2933C9.25301 12.4133 9.19301 12.52 9.09967 12.5933C8.61967 12.9733 8.32634 13.5666 8.32634 14.2466V14.2533C8.32634 14.4666 8.17301 14.66 7.95967 14.66H4.89301C2.93301 14.6666 1.33301 13.0666 1.33301 11.1V4.27995C1.33301 2.65329 2.65301 1.33329 4.27967 1.33329H5.82634C6.91301 1.33329 7.25301 1.68662 7.68634 2.26662L8.61967 3.50662C8.82634 3.77995 8.85301 3.81329 9.23967 3.81329H11.0997C12.6863 3.81329 14.033 4.85329 14.493 6.29329C14.593 6.59329 14.6463 6.89995 14.6597 7.22662C14.6663 7.27329 14.6663 7.33329 14.6663 7.37995Z"
+                                                        fill="#6D6D6D" />
+                                                </svg>
+
+                                                <span style="vertical-align: middle;">
+
+                                                    File Attachments
+                                                </span>
+                                                <div class="card p-2">
+                                                    <div class="d-inline">
+                                                        <a href="" target="_blank">
+                                                            <svg width="16" class="mx-1
+                                                        " height="17" viewBox="0 0 16 17" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M10.3865 13.6334C8.97988 13.7334 8.97988 15.7734 10.3865 15.8734H13.7265C14.1332 15.8734 14.5199 15.7267 14.8199 15.4534C15.8065 14.5934 15.2799 12.86 13.9799 12.7C13.5132 9.88668 9.43988 10.9534 10.4065 13.6334"
+                                                                    fill="#001B41" />
+                                                                <path
+                                                                    d="M10.3865 13.6334C8.97988 13.7334 8.97988 15.7734 10.3865 15.8734H13.7265C14.1332 15.8734 14.5199 15.7267 14.8199 15.4534C15.8065 14.5934 15.2799 12.86 13.9799 12.7C13.5132 9.88668 9.43988 10.9534 10.4065 13.6334"
+                                                                    fill="#001B41" />
+                                                                <path
+                                                                    d="M14.6663 7.87996V10.7266C14.6663 10.94 14.3263 11.0333 14.1797 10.88C13.8663 10.5533 13.473 10.3066 13.0197 10.1666C11.973 9.83996 10.7663 10.16 10.0063 10.9466C9.52634 11.46 9.26634 12.1 9.25301 12.7933C9.25301 12.9133 9.19301 13.02 9.09967 13.0933C8.61967 13.4733 8.32634 14.0666 8.32634 14.7466V14.7533C8.32634 14.9666 8.17301 15.16 7.95967 15.16H4.89301C2.93301 15.1666 1.33301 13.5666 1.33301 11.6V4.77996C1.33301 3.15329 2.65301 1.83329 4.27967 1.83329H5.82634C6.91301 1.83329 7.25301 2.18662 7.68634 2.76662L8.61967 4.00662C8.82634 4.27996 8.85301 4.31329 9.23967 4.31329H11.0997C12.6863 4.31329 14.033 5.35329 14.493 6.79329C14.593 7.09329 14.6463 7.39996 14.6597 7.72662C14.6663 7.77329 14.6663 7.83329 14.6663 7.87996Z"
+                                                                    fill="#001B41" />
+                                                            </svg>Item 1 </a>
+                                                    </div>
+                                                    <div class="d-inline">
+                                                        <a href="" target="_blank">
+                                                            <svg width="16" class="mx-1
+                                                        " height="17" viewBox="0 0 16 17" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M10.3865 13.6334C8.97988 13.7334 8.97988 15.7734 10.3865 15.8734H13.7265C14.1332 15.8734 14.5199 15.7267 14.8199 15.4534C15.8065 14.5934 15.2799 12.86 13.9799 12.7C13.5132 9.88668 9.43988 10.9534 10.4065 13.6334"
+                                                                    fill="#001B41" />
+                                                                <path
+                                                                    d="M10.3865 13.6334C8.97988 13.7334 8.97988 15.7734 10.3865 15.8734H13.7265C14.1332 15.8734 14.5199 15.7267 14.8199 15.4534C15.8065 14.5934 15.2799 12.86 13.9799 12.7C13.5132 9.88668 9.43988 10.9534 10.4065 13.6334"
+                                                                    fill="#001B41" />
+                                                                <path
+                                                                    d="M14.6663 7.87996V10.7266C14.6663 10.94 14.3263 11.0333 14.1797 10.88C13.8663 10.5533 13.473 10.3066 13.0197 10.1666C11.973 9.83996 10.7663 10.16 10.0063 10.9466C9.52634 11.46 9.26634 12.1 9.25301 12.7933C9.25301 12.9133 9.19301 13.02 9.09967 13.0933C8.61967 13.4733 8.32634 14.0666 8.32634 14.7466V14.7533C8.32634 14.9666 8.17301 15.16 7.95967 15.16H4.89301C2.93301 15.1666 1.33301 13.5666 1.33301 11.6V4.77996C1.33301 3.15329 2.65301 1.83329 4.27967 1.83329H5.82634C6.91301 1.83329 7.25301 2.18662 7.68634 2.76662L8.61967 4.00662C8.82634 4.27996 8.85301 4.31329 9.23967 4.31329H11.0997C12.6863 4.31329 14.033 5.35329 14.493 6.79329C14.593 7.09329 14.6463 7.39996 14.6597 7.72662C14.6663 7.77329 14.6663 7.83329 14.6663 7.87996Z"
+                                                                    fill="#001B41" />
+                                                            </svg>Item 2</a>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-end">
+
+                                                    <button type="submit"
+                                                        class="btn text-start btn-md m-2 border border-secondary"
+                                                        style="background-color: #fff; width: 200px;color: #6D6D6D;">
+                                                        <svg width="12" class="mx-2" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M6 12C5.52661 12 5.14286 11.6162 5.14286 11.1429V7.85714C5.14286 7.30486 4.69514 6.85714 4.14286 6.85714H0.857144C0.383757 6.85714 0 6.47339 0 6V6C0 5.52661 0.383756 5.14286 0.857143 5.14286H4.14286C4.69514 5.14286 5.14286 4.69514 5.14286 4.14286V0.857144C5.14286 0.383757 5.52661 0 6 0V0C6.47339 0 6.85714 0.383756 6.85714 0.857143V4.14286C6.85714 4.69514 7.30486 5.14286 7.85714 5.14286H11.1429C11.6162 5.14286 12 5.52661 12 6V6C12 6.47339 11.6162 6.85714 11.1429 6.85714H7.85714C7.30486 6.85714 6.85714 7.30486 6.85714 7.85714V11.1429C6.85714 11.6162 6.47339 12 6 12V12Z"
+                                                                fill="#6D6D6D" />
+                                                        </svg>
+                                                        Add item
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.6668 1.33333H5.3335C2.66683 1.33333 1.3335 2.66666 1.3335 5.33333V14C1.3335 14.3667 1.6335 14.6667 2.00016 14.6667H10.6668C13.3335 14.6667 14.6668 13.3333 14.6668 10.6667V5.33333C14.6668 2.66666 13.3335 1.33333 10.6668 1.33333ZM9.3335 10.1667H4.66683C4.3935 10.1667 4.16683 9.93999 4.16683 9.66666C4.16683 9.39333 4.3935 9.16666 4.66683 9.16666H9.3335C9.60683 9.16666 9.8335 9.39333 9.8335 9.66666C9.8335 9.93999 9.60683 10.1667 9.3335 10.1667ZM11.3335 6.83333H4.66683C4.3935 6.83333 4.16683 6.60666 4.16683 6.33333C4.16683 6.05999 4.3935 5.83333 4.66683 5.83333H11.3335C11.6068 5.83333 11.8335 6.05999 11.8335 6.33333C11.8335 6.60666 11.6068 6.83333 11.3335 6.83333Z"
+                                                        fill="#6D6D6D" />
+                                                </svg>
+
+
+                                                <span style="vertical-align: middle;">
+
+                                                    Comment
+                                                </span>
+
+                                                <textarea name="" id=" description"
+                                                    class="form-control input-control form-control-sm" cols="30"
+                                                    rows="2"></textarea>
+                                                <div class="col-md-12 d-flex justify-content-end">
+                                                    <button type="submit"
+                                                        class="btn text-start btn-md m-2 border border-secondary"
+                                                        style="background-color: #fff; width: 200px;color: #6D6D6D;">
+                                                        <svg width="12" class="mx-2" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M6 12C5.52661 12 5.14286 11.6162 5.14286 11.1429V7.85714C5.14286 7.30486 4.69514 6.85714 4.14286 6.85714H0.857144C0.383757 6.85714 0 6.47339 0 6V6C0 5.52661 0.383756 5.14286 0.857143 5.14286H4.14286C4.69514 5.14286 5.14286 4.69514 5.14286 4.14286V0.857144C5.14286 0.383757 5.52661 0 6 0V0C6.47339 0 6.85714 0.383756 6.85714 0.857143V4.14286C6.85714 4.69514 7.30486 5.14286 7.85714 5.14286H11.1429C11.6162 5.14286 12 5.52661 12 6V6C12 6.47339 11.6162 6.85714 11.1429 6.85714H7.85714C7.30486 6.85714 6.85714 7.30486 6.85714 7.85714V11.1429C6.85714 11.6162 6.47339 12 6 12V12Z"
+                                                                fill="#6D6D6D" />
+                                                        </svg>
+                                                        Add Comment
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row px-2"></div>
+                                </div>
+                                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                                    <div class="row">
+                                        <div class="ms-4 mt-2 col-auto">
+                                            <span class="" style="font-size: 20px; color: black; ">
+
+                                                My Notes
+                                                <div class="border-bottom ms-auto me-auto border-dark w-75">
+
+                                                </div>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="row px-2">
+                                        <div class=" m-3">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.6668 1.33333H5.3335C2.66683 1.33333 1.3335 2.66666 1.3335 5.33333V14C1.3335 14.3667 1.6335 14.6667 2.00016 14.6667H10.6668C13.3335 14.6667 14.6668 13.3333 14.6668 10.6667V5.33333C14.6668 2.66666 13.3335 1.33333 10.6668 1.33333ZM9.3335 10.1667H4.66683C4.3935 10.1667 4.16683 9.93999 4.16683 9.66666C4.16683 9.39333 4.3935 9.16666 4.66683 9.16666H9.3335C9.60683 9.16666 9.8335 9.39333 9.8335 9.66666C9.8335 9.93999 9.60683 10.1667 9.3335 10.1667ZM11.3335 6.83333H4.66683C4.3935 6.83333 4.16683 6.60666 4.16683 6.33333C4.16683 6.05999 4.3935 5.83333 4.66683 5.83333H11.3335C11.6068 5.83333 11.8335 6.05999 11.8335 6.33333C11.8335 6.60666 11.6068 6.83333 11.3335 6.83333Z"
+                                                    fill="#6D6D6D" />
+                                            </svg>
+
+
+                                            <span style="vertical-align: middle;">
+
+                                                My Notes
+                                            </span>
+                                            <textarea name="" id=" description"
+                                                class="input-control form-control form-control-sm" cols="30"
+                                                rows="6"></textarea>
+                                            <div class=" col-md-12 d-flex justify-content-end">
+
+                                                <button type="submit"
+                                                    class="text-start btn btn-md m-2 border border-secondary"
+                                                    style="background-color: #fff; width: 200px;color: #6D6D6D;">
+                                                    <svg width="12" class="mx-2" height="12" viewBox="0 0 12 12"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M10.5 11H1.5C1.295 11 1.125 10.83 1.125 10.625C1.125 10.42 1.295 10.25 1.5 10.25H10.5C10.705 10.25 10.875 10.42 10.875 10.625C10.875 10.83 10.705 11 10.5 11Z"
+                                                            fill="#8D8D8D" />
+                                                        <path
+                                                            d="M9.50979 1.74C8.53979 0.770002 7.58979 0.745002 6.59479 1.74L5.98979 2.345C5.93979 2.395 5.91979 2.475 5.93979 2.545C6.31979 3.87 7.37979 4.93 8.70479 5.31C8.72479 5.315 8.74479 5.32 8.76479 5.32C8.81979 5.32 8.86979 5.3 8.90979 5.26L9.50979 4.655C10.0048 4.165 10.2448 3.69 10.2448 3.21C10.2498 2.715 10.0098 2.235 9.50979 1.74Z"
+                                                            fill="#8D8D8D" />
+                                                        <path
+                                                            d="M7.80516 5.76501C7.66016 5.69501 7.52016 5.62501 7.38516 5.54501C7.27516 5.48001 7.17016 5.41001 7.06516 5.33501C6.98016 5.28001 6.88016 5.20001 6.78516 5.12001C6.77516 5.11501 6.74016 5.08501 6.70016 5.04501C6.53516 4.90501 6.35016 4.72501 6.18516 4.52501C6.17016 4.51501 6.14516 4.48001 6.11016 4.43501C6.06016 4.37501 5.97516 4.27501 5.90016 4.16001C5.84016 4.08501 5.77016 3.97501 5.70516 3.86501C5.62516 3.73001 5.55516 3.59501 5.48516 3.45501C5.39338 3.25834 5.13525 3.19992 4.98179 3.35338L2.17016 6.16501C2.10516 6.23001 2.04516 6.35501 2.03016 6.44001L1.76016 8.35501C1.71016 8.69501 1.80516 9.01501 2.01516 9.23001C2.19516 9.40501 2.44516 9.50001 2.71516 9.50001C2.77516 9.50001 2.83516 9.49501 2.89516 9.48501L4.81516 9.21501C4.90516 9.20001 5.03016 9.14001 5.09016 9.07501L7.90643 6.25874C8.05682 6.10834 8.00032 5.84958 7.80516 5.76501Z"
+                                                            fill="#8D8D8D" />
+                                                    </svg> Edit description
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-black" style="background-color: #EBEEF1;">
+                                <div class="m-3 position-absolute " style="z-index: 1; right: 0; top: 30px;">
+                                    <button type="button" class="btn-close " data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="mt-5 ms-3" style="font-size: 20px; font-weight: 500;">
+                                    Settings
+                                </div>
+                                <div class="ms-3" style="font-size: 14px;">
+                                    Date Created: <span class="text-secondary">11-05-2023</span><br>
+                                    Start Date: <span class="text-secondary"> 11-05-2023 </span> <br>
+                                    End Date: <span class="text-secondary"> 11-05-2023 </span><br>
+                                    <div class="row mt-2">
+                                        <div class="col-auto pt-1" style="width: 100px;">
+
+                                            Status:
+                                        </div>
+                                        <select class="form-select col-auto input-control-select"
+                                            aria-label="Default select example" style="width: 150px;">
+
+                                            <option value="1">Active </option>
+                                            <option value="2">Normal</option>
+                                            <option value="3">Inactive</option>
+                                        </select>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-auto pt-1" style="width: 100px;">
+
+                                            Priority:
+                                        </div>
+                                        <select class="col-auto form-select input-control-select"
+                                            aria-label="Default select example" style="width: 150px;">
+
+                                            <option value="1">Active </option>
+                                            <option value="2">Normal</option>
+                                            <option value="3">Inactive</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                                <div class="mt-5 ms-3" style="font-size: 20px; font-weight: 500;">
+                                    Contact
+                                </div>
+                                <div class="ms-3">
+                                    <a href="./" style="text-decoration: none;">
+
+                                        <svg width="24" class="mx-1" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.05 14.95L9.2 16.8C8.81 17.19 8.19 17.19 7.79 16.81C7.68 16.7 7.57 16.6 7.46 16.49C6.43 15.45 5.5 14.36 4.67 13.22C3.85 12.08 3.19 10.94 2.71 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C10.83 13.32 10.94 13.42 11.04 13.52C11.44 13.91 11.45 14.55 11.05 14.95Z"
+                                                fill="#6D6D6D" />
+                                            <path
+                                                d="M21.9696 18.33C21.9696 18.61 21.9196 18.9 21.8196 19.18C21.7896 19.26 21.7596 19.34 21.7196 19.42C21.5496 19.78 21.3296 20.12 21.0396 20.44C20.5496 20.98 20.0096 21.37 19.3996 21.62C19.3896 21.62 19.3796 21.63 19.3696 21.63C18.7796 21.87 18.1396 22 17.4496 22C16.4296 22 15.3396 21.76 14.1896 21.27C13.0396 20.78 11.8896 20.12 10.7496 19.29C10.3596 19 9.96961 18.71 9.59961 18.4L12.8696 15.13C13.1496 15.34 13.3996 15.5 13.6096 15.61C13.6596 15.63 13.7196 15.66 13.7896 15.69C13.8696 15.72 13.9496 15.73 14.0396 15.73C14.2096 15.73 14.3396 15.67 14.4496 15.56L15.2096 14.81C15.4596 14.56 15.6996 14.37 15.9296 14.25C16.1596 14.11 16.3896 14.04 16.6396 14.04C16.8296 14.04 17.0296 14.08 17.2496 14.17C17.4696 14.26 17.6996 14.39 17.9496 14.56L21.2596 16.91C21.5196 17.09 21.6996 17.3 21.8096 17.55C21.9096 17.8 21.9696 18.05 21.9696 18.33Z"
+                                                fill="#6D6D6D" />
+                                        </svg>
+
+                                    </a>
+                                    <a href="./" style="text-decoration: none;">
+
+                                        <svg width="24" class="mx-1" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17 3.5H7C4 3.5 2 5 2 8.5V15.5C2 19 4 20.5 7 20.5H17C20 20.5 22 19 22 15.5V8.5C22 5 20 3.5 17 3.5ZM17.47 9.59L14.34 12.09C13.68 12.62 12.84 12.88 12 12.88C11.16 12.88 10.31 12.62 9.66 12.09L6.53 9.59C6.21 9.33 6.16 8.85 6.41 8.53C6.67 8.21 7.14 8.15 7.46 8.41L10.59 10.91C11.35 11.52 12.64 11.52 13.4 10.91L16.53 8.41C16.85 8.15 17.33 8.2 17.58 8.53C17.84 8.85 17.79 9.33 17.47 9.59Z"
+                                                fill="#6D6D6D" />
+                                        </svg>
+
+                                    </a>
+                                    <a href="./" style="text-decoration: none;">
+
+                                        <svg width="21" class="mx-1" height="20" viewBox="0 0 21 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M20.9798 9.40995C20.6398 3.60995 15.3698 -0.860038 9.2998 0.139962C5.1198 0.829962 1.7698 4.21994 1.1198 8.39994C0.739804 10.8199 1.23983 13.1099 2.32983 14.9999L1.43981 18.3099C1.23981 19.0599 1.92979 19.7399 2.66979 19.5299L5.9298 18.6299C7.4098 19.4999 9.1398 19.9999 10.9898 19.9999C16.6298 19.9999 21.3098 15.0299 20.9798 9.40995ZM15.8798 13.7199C15.7898 13.8999 15.6798 14.07 15.5398 14.23C15.2898 14.5 15.0198 14.7 14.7198 14.82C14.4198 14.95 14.0898 15.01 13.7398 15.01C13.2298 15.01 12.6798 14.89 12.1098 14.64C11.5298 14.39 10.9598 14.0599 10.3898 13.6499C9.80982 13.2299 9.26981 12.7599 8.74981 12.2499C8.22981 11.7299 7.76978 11.1799 7.34978 10.6099C6.93979 10.0399 6.6098 9.46994 6.3698 8.89994C6.1298 8.32994 6.00982 7.77996 6.00982 7.25996C6.00982 6.91996 6.06981 6.58995 6.18981 6.28995C6.30981 5.97995 6.49983 5.69996 6.76983 5.44996C7.08983 5.12996 7.43981 4.97996 7.80981 4.97996C7.94981 4.97996 8.08978 5.00995 8.21978 5.06995C8.34978 5.12995 8.46981 5.21995 8.55981 5.34995L9.71978 6.98994C9.80978 7.11994 9.87979 7.22994 9.91979 7.33994C9.96979 7.44994 9.9898 7.54994 9.9898 7.64994C9.9898 7.76994 9.94981 7.88996 9.87981 8.00996C9.80981 8.12996 9.71978 8.24994 9.59978 8.36994L9.21978 8.76994C9.15978 8.82994 9.13982 8.88995 9.13982 8.96995C9.13982 9.00995 9.14978 9.04994 9.15978 9.08994C9.17978 9.12994 9.18982 9.15995 9.19982 9.18995C9.28982 9.35995 9.44979 9.56993 9.66979 9.82993C9.89979 10.0899 10.1398 10.3599 10.3998 10.6199C10.6698 10.8899 10.9298 11.1299 11.1998 11.3599C11.4598 11.5799 11.6798 11.73 11.8498 11.82C11.8798 11.83 11.9098 11.8499 11.9398 11.8599C11.9798 11.8799 12.0198 11.88 12.0698 11.88C12.1598 11.88 12.2198 11.85 12.2798 11.79L12.6598 11.41C12.7898 11.28 12.9098 11.19 13.0198 11.13C13.1398 11.06 13.2498 11.0199 13.3798 11.0199C13.4798 11.0199 13.5798 11.0399 13.6898 11.0899C13.7998 11.1399 13.9198 11.2 14.0398 11.29L15.6998 12.4699C15.8298 12.5599 15.9198 12.67 15.9798 12.79C16.0298 12.92 16.0598 13.0399 16.0598 13.1799C15.9998 13.3499 15.9598 13.5399 15.8798 13.7199Z"
+                                                fill="#6D6D6D" />
+                                        </svg>
+
+
+                                    </a>
+                                </div>
+                                <div class="mt-5 ms-3" style="font-size: 20px; font-weight: 500;">
+                                    Tags
+                                </div>
+                                <button class="btn btn-light text-start ms-3 w-75 mt-2">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 14.6667H2C1.72667 14.6667 1.5 14.44 1.5 14.1667C1.5 13.8933 1.72667 13.6667 2 13.6667H14C14.2733 13.6667 14.5 13.8933 14.5 14.1667C14.5 14.44 14.2733 14.6667 14 14.6667Z"
+                                            fill="#6D6D6D" />
+                                        <path
+                                            d="M12.6799 2.31994C11.3866 1.02661 10.1199 0.993275 8.79322 2.31994L7.98655 3.12661C7.91989 3.19328 7.89322 3.29994 7.91989 3.39328C8.42655 5.15994 9.83989 6.57328 11.6066 7.07994C11.6332 7.08661 11.6599 7.09328 11.6866 7.09328C11.7599 7.09328 11.8266 7.06661 11.8799 7.01328L12.6799 6.20661C13.3399 5.55328 13.6599 4.91994 13.6599 4.27994C13.6666 3.61994 13.3466 2.97994 12.6799 2.31994Z"
+                                            fill="#6D6D6D" />
+                                        <path
+                                            d="M10.407 7.6867C10.2137 7.59337 10.027 7.50004 9.84704 7.39337C9.70038 7.3067 9.56038 7.21337 9.42038 7.11337C9.30704 7.04004 9.17371 6.93337 9.04704 6.8267C9.03371 6.82004 8.98704 6.78004 8.93371 6.7267C8.71371 6.54004 8.46704 6.30004 8.24704 6.03337C8.22704 6.02004 8.19371 5.97337 8.14704 5.91337C8.08038 5.83337 7.96704 5.70004 7.86704 5.5467C7.78704 5.4467 7.69371 5.30004 7.60704 5.15337C7.50038 4.97337 7.40704 4.79337 7.31371 4.6067C7.19134 4.34448 6.84717 4.26658 6.64255 4.4712L2.89371 8.22004C2.80704 8.3067 2.72704 8.47337 2.70704 8.5867L2.34704 11.14C2.28038 11.5934 2.40704 12.02 2.68704 12.3067C2.92704 12.54 3.26038 12.6667 3.62038 12.6667C3.70038 12.6667 3.78038 12.66 3.86038 12.6467L6.42038 12.2867C6.54038 12.2667 6.70704 12.1867 6.78704 12.1L10.5421 8.34501C10.7426 8.14448 10.6673 7.79946 10.407 7.6867Z"
+                                            fill="#6D6D6D" />
+                                    </svg>
+
+                                    Edit tags
+                                </button>
+                                <div class="mt-5 ms-3" style="font-size: 20px; font-weight: 500;">
+                                    Actions
+                                </div>
+                                <button class="btn btn-light ms-3 text-start w-75 mt-2">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 14.6667H2C1.72667 14.6667 1.5 14.44 1.5 14.1667C1.5 13.8933 1.72667 13.6667 2 13.6667H14C14.2733 13.6667 14.5 13.8933 14.5 14.1667C14.5 14.44 14.2733 14.6667 14 14.6667Z"
+                                            fill="#6D6D6D" />
+                                        <path
+                                            d="M12.6799 2.31994C11.3866 1.02661 10.1199 0.993275 8.79322 2.31994L7.98655 3.12661C7.91989 3.19328 7.89322 3.29994 7.91989 3.39328C8.42655 5.15994 9.83989 6.57328 11.6066 7.07994C11.6332 7.08661 11.6599 7.09328 11.6866 7.09328C11.7599 7.09328 11.8266 7.06661 11.8799 7.01328L12.6799 6.20661C13.3399 5.55328 13.6599 4.91994 13.6599 4.27994C13.6666 3.61994 13.3466 2.97994 12.6799 2.31994Z"
+                                            fill="#6D6D6D" />
+                                        <path
+                                            d="M10.407 7.6867C10.2137 7.59337 10.027 7.50004 9.84704 7.39337C9.70038 7.3067 9.56038 7.21337 9.42038 7.11337C9.30704 7.04004 9.17371 6.93337 9.04704 6.8267C9.03371 6.82004 8.98704 6.78004 8.93371 6.7267C8.71371 6.54004 8.46704 6.30004 8.24704 6.03337C8.22704 6.02004 8.19371 5.97337 8.14704 5.91337C8.08038 5.83337 7.96704 5.70004 7.86704 5.5467C7.78704 5.4467 7.69371 5.30004 7.60704 5.15337C7.50038 4.97337 7.40704 4.79337 7.31371 4.6067C7.19134 4.34448 6.84717 4.26658 6.64255 4.4712L2.89371 8.22004C2.80704 8.3067 2.72704 8.47337 2.70704 8.5867L2.34704 11.14C2.28038 11.5934 2.40704 12.02 2.68704 12.3067C2.92704 12.54 3.26038 12.6667 3.62038 12.6667C3.70038 12.6667 3.78038 12.66 3.86038 12.6467L6.42038 12.2867C6.54038 12.2667 6.70704 12.1867 6.78704 12.1L10.5421 8.34501C10.7426 8.14448 10.6673 7.79946 10.407 7.6867Z"
+                                            fill="#6D6D6D" />
+                                    </svg>
+
+                                    Edit milestones
+                                </button>
+                                <button class="btn btn-light text-start ms-3 w-75 mt-2">
+                                    <svg width="16" class="mx-1" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.0461 3.48662C12.9728 3.37995 11.8995 3.29995 10.8195 3.23995V3.23328L10.6728 2.36662C10.5728 1.75328 10.4261 0.833282 8.86612 0.833282H7.11945C5.56612 0.833282 5.41945 1.71328 5.31279 2.35995L5.17279 3.21328C4.55279 3.25328 3.93279 3.29328 3.31279 3.35328L1.95279 3.48662C1.67279 3.51328 1.47279 3.75995 1.49945 4.03328C1.52612 4.30662 1.76612 4.50662 2.04612 4.47995L3.40612 4.34662C6.89945 3.99995 10.4195 4.13328 13.9528 4.48662C13.9728 4.48662 13.9861 4.48662 14.0061 4.48662C14.2595 4.48662 14.4795 4.29328 14.5061 4.03328C14.5261 3.75995 14.3261 3.51328 14.0461 3.48662Z"
+                                            fill="#6D6D6D" />
+                                        <path
+                                            d="M12.8202 5.42672C12.6602 5.26005 12.4402 5.16672 12.2135 5.16672H3.78683C3.56016 5.16672 3.33349 5.26005 3.18016 5.42672C3.02683 5.59338 2.94016 5.82005 2.95349 6.05338L3.36683 12.8934C3.44016 13.9067 3.53349 15.1734 5.86016 15.1734H10.1402C12.4668 15.1734 12.5602 13.9134 12.6335 12.8934L13.0468 6.06005C13.0602 5.82005 12.9735 5.59338 12.8202 5.42672ZM9.10682 11.8334H6.88683C6.61349 11.8334 6.38683 11.6067 6.38683 11.3334C6.38683 11.0601 6.61349 10.8334 6.88683 10.8334H9.10682C9.38016 10.8334 9.60682 11.0601 9.60682 11.3334C9.60682 11.6067 9.38016 11.8334 9.10682 11.8334ZM9.66682 9.16672H6.33349C6.06016 9.16672 5.83349 8.94005 5.83349 8.66672C5.83349 8.39338 6.06016 8.16672 6.33349 8.16672H9.66682C9.94016 8.16672 10.1668 8.39338 10.1668 8.66672C10.1668 8.94005 9.94016 9.16672 9.66682 9.16672Z"
+                                            fill="#6D6D6D" />
+                                    </svg>
+
+
+                                    Archive
+                                </button>
+                                <div class="mt-5 ms-3" style="font-size: 20px; font-weight: 500;">
+                                    Information
+                                </div>
+                                <div class=" ms-3 mb-5" style="font-size: 14px;">
+                                    Task ID: <span class="text-secondary">1234</span> <br>
+                                    Created By: <span class="text-secondary">HouseHat</span> <br>
+                                    Date Created: <span class="text-secondary">11-05-2023</span> <br>
+                                    Start Date: <span class="text-secondary"></span>11-05-2023</span> <br>
+                                    Total Time:<span class="text-secondary">00:00</span> <br>
+                                    Time Invoiced: <span class="text-secondary">00:00</span> <br>
+                                    Project: <span class="text-secondary">#11</span> <br>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- end modal  -->
+
+    </div>
+
+    </div>
+
+    <script>
+        function viewreadonly() {
+
+            var elements = document.getElementsByClassName("input-control");
+            var elements1 = document.getElementsByClassName("input-control-select");
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].readOnly = true;
+            }
+            for (var i = 0; i < elements1.length; i++) {
+                elements1[i].disabled = true;
+            }
+        }
+        function editreadonly() {
+
+            var elements = document.getElementsByClassName("input-control");
+            var elements1 = document.getElementsByClassName("input-control-select");
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].readOnly = false;
+            }
+            for (var i = 0; i < elements1.length; i++) {
+                elements1[i].disabled = false;
+            }
+        }
+    </script>
+    <script src="./sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+.form-signin {
+    max-width: 300px;
+    
+  }
+   .login-card-width{
+   width: 600px;
+    min-height: 600px !important;
+   }
+   .container{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+ 
+   }
+@media screen and (max-width: 480px) {
+    .form-signin {
+        max-width: 300px;
+       
+      }
+      .login-card-width{
+        width: 480px;
+         min-height: 600px !important;
+        }
+}

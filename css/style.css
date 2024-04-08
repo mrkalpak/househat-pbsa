@@ -1,0 +1,139 @@
+.househatlogo {
+  height: 55px;
+  width: 166.59420776367188px;
+}
+.highlighted{
+  background-color: rgba(2, 172, 30, 0.15);
+  border-radius: 10px;
+}
+.modal-custom {
+  width: 22%;
+}
+.modal-custom-notifaction {
+  width: 62%;
+}
+.dropdown-item:focus{
+  background-color: #001B41;
+  color: white;
+ }
+.active {
+  background-color: white !important;
+  color: #6d6d6d !important;
+  font-weight: 500;
+  border: 1px solid #eaeaea;
+  border-radius: 75px !important;
+  /* font-size: 14px; */
+  /* width: 45px; */
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  
+}
+.dash-grid-btn{
+  
+width: 58px;
+height: 62px;
+background: linear-gradient(180deg, rgba(0, 27, 65, 0.8) 0%, rgba(0, 27, 65, 0.5) 25.52%, rgba(0, 27, 65, 0) 100%);
+border-radius: 50px;
+}
+.dash-grid-btn-icon{
+  top: 14px;
+
+
+}
+.special_width{
+  width: 90.5%;
+}
+.sidenavbar-links{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.form-control{ border-color: lightgray !important;}
+.form-control:focus {
+  border-color: none !important;
+  box-shadow: none;
+}
+.form-check-input:focus{
+  border-color: none !important;
+  box-shadow: none;
+  
+}
+.form-check-input{
+  border-color: lightgray !important;
+}
+.form-check-input:checked{
+  background-color: #001B41;
+}
+.form-select:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+.navbar-collapse.collapse {
+  display: block !important;
+}
+
+.navbar-nav > li,
+.navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right !important;
+}
+.navicon{
+    margin-right: 0;
+    margin-left: auto;
+}
+.let_lead_width{
+  width: 69%;
+}
+ a,a:hover{
+  text-decoration: none; color: inherit;
+ }
+ .scrollable-place-dashboard{
+  overflow-y: auto;
+   overflow-x: hidden;
+
+ }
+ .scrollable-place-dashboard::-webkit-scrollbar { 
+  display: none;  
+}
+@media screen and (max-width: 480px) {
+  .let_lead_width{
+    width: 64%;
+  }
+  .special_width{
+    width: 80.5%;
+  }
+
+    #width-adjust{
+      position: absolute;
+      z-index: 1;
+      display: none !important;
+    }
+    .othercontent{
+      margin-top: 100px;
+      position: relative;
+     margin-left: 6%;
+    }
+    .navicon{
+        margin-left: auto;
+        margin-right: auto;
+    }
+  .modal-custom-notifaction {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .modal-custom {
+    width: 90%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
